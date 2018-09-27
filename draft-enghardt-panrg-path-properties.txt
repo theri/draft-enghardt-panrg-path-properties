@@ -1,0 +1,280 @@
+
+
+
+
+PANRG                                                        T. Enghardt
+Internet-Draft                                                 TU Berlin
+Intended status: Informational                           C. Kraehenbuehl
+Expires: March 31, 2019                                      ETH Zuerich
+                                                      September 27, 2018
+
+
+                    A Vocabulary of Path Properties
+              draft-enghardt-panrg-path-properties-latest
+
+Abstract
+
+   This document defines and categorizes information about paths that an
+   endpoint might have or want to have.  It addresses the first of the
+   questions in Path-Aware Networking [I-D.irtf-panrg-questions].
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at http://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on March 31, 2019.
+
+Copyright Notice
+
+   Copyright (c) 2018 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (http://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+
+
+
+Enghardt & Kraehenbuehl  Expires March 31, 2019                 [Page 1]
+
+Internet-Draft               Path Properties              September 2018
+
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  Static Properties . . . . . . . . . . . . . . . . . . . . . .   2
+   3.  Topology Properties . . . . . . . . . . . . . . . . . . . . .   3
+   4.  Dynamic Properties  . . . . . . . . . . . . . . . . . . . . .   3
+   5.  Technologies to disseminate Path Properties . . . . . . . . .   4
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
+   8.  Informative References  . . . . . . . . . . . . . . . . . . .   5
+   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .   5
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   5
+
+1.  Introduction
+
+   As the current Internet provides a best-effort bit pipe, endpoints do
+   not know much about the path to other endpoints.  A Path Aware
+   Network exposes information about one or multiple paths through the
+   network to endpoints, so that endpoints can use this information.
+
+   Such path properties may be relatively static, e.g., the nature of
+   the access technology on the first hop, or relatively dynamic, e.g.,
+   current Round Trip Time.
+
+2.  Static Properties
+
+   Static Path Properties are not expected to change very often, e.g.,
+   they stay constant within the lifetime of a connection to another
+   endpoint.  They usually relate to the access network within the first
+   hop or the first few hops.
+
+   Access Technology present on the path:  The lower layer technology on
+      the first hop, for example, WiFi, Wired Ethernet, or Cellular.
+      This can also be more detailed, e.g., further specifying the
+      Cellular as 2G, 3G, 4G, or 5G technology, or the WiFi as 802.11a,
+      b, g, n, or ac.  These are just examples, this list is not
+      exhaustive, and there is no common index of identifiers here.
+      Note that access technologies further along the path may also be
+      relevant, e.g., a cellular backbone is not only the first hop, and
+      there may be a DSL line behind the WiFi.
+
+   Monetary Cost:  This is information related to billing, data caps,
+      etc.  It could be the allowed monthly data cap, the start and end
+      of a billing period, the monetary cost per Megabyte sent or
+      received, etc.
+
+
+
+
+
+
+Enghardt & Kraehenbuehl  Expires March 31, 2019                 [Page 2]
+
+Internet-Draft               Path Properties              September 2018
+
+
+3.  Topology Properties
+
+   [FIXME: Can we come up with a better name?]
+
+   Topology Properties can change within the lifetime of a connection to
+   a another endpoint, but usually on the timescale of seconds, minutes,
+   or hours, e.g., when the routes change.
+
+   Presence of certain device on the path:  Could be the presence of a
+      certain kind of middlebox, e.g., a proxy, a firewall, a NAT.
+
+   Presence of a specific Autonomous System (AS) on a path:  Indicates
+      that traffic goes through a specific AS.
+
+   Disjointness:  How disjoint a path is from another path.
+
+   Path MTU  The end-to-end maximum transmission unit in one packet.
+
+   Transport Protocols available:  Whether a specific transport protocol
+      can be used to establish a connection over this path.  An endpoint
+      may know this because it has cached whether it could successfully
+      establish, e.g., a QUIC connection, or an MPTCP subflow.
+
+   Protocol Features available:  Whether a specific feature within a
+      protocol is known to work over this path, e.g., ECN, or TCP Fast
+      Open.
+
+   [Idea: Something related to trust level - Does traffic stay within
+   the Intranet or not?]
+
+4.  Dynamic Properties
+
+   Dynamic Path Properties are expected to change on the timescale of
+   milliseconds and can usually only be approximated and sampled.  They
+   usually relate to performance within the network, e.g. available end-
+   to-end bandwidth.
+
+   Some of these apply more to the first hop, some apply on the entire
+   path.
+
+   Some of them may be symmetric and some may be asymmetric, i.e., be
+   different in the upstream direction and in the downstream direction
+   from the point of view of a particular host.
+
+   Of some of these properties it can be useful to compute aggregates,
+   e.g., averages or minimums.
+
+
+
+
+
+Enghardt & Kraehenbuehl  Expires March 31, 2019                 [Page 3]
+
+Internet-Draft               Path Properties              September 2018
+
+
+   Available bandwidth:  Maximum number of bytes per second that can be
+      sent or received over this path.  This depends on the available
+      bandwidth at the bottleneck, and on crosstraffic.
+
+   Round Trip Time:  Time from sending a packet to receiving a response
+      from the remote endpoint.
+
+   Round Trip Time variation:  Disparity of Round Trip Time values
+      either over time or among multiple concurrent connections.  A high
+      RTT variation often indicates congestion.
+
+   Packet Loss:  Percentage of sent packets that are not received on the
+      other end.
+
+   Congestion:  Whether there is any indication of congestion on the
+      path.
+
+   Wireless Signal strength:  Power level of the wireless signal being
+      received.  Lower signal strength, relative to the same noise
+      floor, is correlated with higher bit error rates and lower
+      modulation rates.
+
+   Wireless Modulation Rate:  Modulation bitrate of the wireless signal.
+      The modulation rate determines how many bytes are transmitted
+      within a symbol on the wireless channel.  A high modulation rate
+      leads to a higher possible bitrate, given sufficient signal
+      strength.
+
+   Wireless Channel utilization:  Percentage of time during which there
+      is a transmission on the wireless medium.  A high channel
+      utilization indicates a congested wireless network.
+
+   See also [ANRW18-Metrics].
+
+5.  Technologies to disseminate Path Properties
+
+   [TODO: Is this in scope for this draft?]
+
+   Provisioning Domain:  A consistent set of network configuration
+      information as defined in [RFC7556], e.g., relating to a local
+      network interface.  This may include source IP address prefixes,
+      IP addresses of DNS servers, name of an HTTP proxy server, DNS
+      suffixes associated with the network, or default gateway IP
+      address.  As one PvD is not restricted to one local network
+      interface, a PvD may also apply to multiple paths.
+
+
+
+
+
+
+Enghardt & Kraehenbuehl  Expires March 31, 2019                 [Page 4]
+
+Internet-Draft               Path Properties              September 2018
+
+
+6.  Security Considerations
+
+   Some of these properties may have security implications for
+   endpoints.  For example, a corporate policy might require to have a
+   firewall on the path.
+
+   If those properties are provided by the network, there is the
+   question of whether an endpoint can trust them.
+
+7.  IANA Considerations
+
+   This document has no IANA actions.
+
+8.  Informative References
+
+   [ANRW18-Metrics]
+              Enghardt, T., Tiesel, P., and A. Feldmann, "Metrics for
+              access network selection", Proceedings of the Applied
+              Networking Research Workshop on - ANRW '18,
+              DOI 10.1145/3232755.3232764, 2018.
+
+   [I-D.irtf-panrg-questions]
+              Trammell, B., "Open Questions in Path Aware Networking",
+              draft-irtf-panrg-questions-00 (work in progress), April
+              2018.
+
+   [RFC7556]  Anipko, D., Ed., "Multiple Provisioning Domain
+              Architecture", RFC 7556, DOI 10.17487/RFC7556, June 2015,
+              <https://www.rfc-editor.org/info/rfc7556>.
+
+Acknowledgments
+
+   TODO
+
+Authors' Addresses
+
+   Theresa Enghardt
+   TU Berlin
+
+   Email: theresa@inet.tu-berlin.de
+
+
+   Cyrill Kraehenbuehl
+   ETH Zuerich
+
+   Email: cyrill.kraehenbuehl@inf.ethz.ch
+
+
+
+
+
+Enghardt & Kraehenbuehl  Expires March 31, 2019                 [Page 5]
