@@ -147,21 +147,21 @@ Internet-Draft               Path Properties              September 2018
 4.  Dynamic Properties
 
    Dynamic Path Properties are expected to change on the timescale of
-   milliseconds and can usually only be approximated and sampled.  They
-   usually relate to performance within the network, e.g. available end-
-   to-end bandwidth.
+   milliseconds.  They usually relate to the state of the path, e.g.,
+   regarding performance such as currently available end-to-end
+   bandwidth.  Some of these properties may depend only on the first hop
+   or on the access network, some may depend on the entire path.
 
-   Some of these apply more to the first hop, some apply on the entire
-   path.
+   Typically, Dynamic Properties can only be approximated and sampled,
+   and might be made available in an aggregated form, such as averages
+   or minimums.  Dynamic Path Properties can be measured by the endpoint
+   itself or somethere in the network.  See [ANRW18-Metrics] for a
+   discussion of how to measure some dynamic path properties at the
+   endpoint.
 
-   Some of them may be symmetric and some may be asymmetric, i.e., be
-   different in the upstream direction and in the downstream direction
-   from the point of view of a particular host.
-
-   Of some of these properties it can be useful to compute aggregates,
-   e.g., averages or minimums.
-
-
+   Some of these properties may be symmetric and some may be asymmetric,
+   i.e., be different in the upstream direction and in the downstream
+   direction from the point of view of a particular host.
 
 
 
@@ -202,8 +202,6 @@ Internet-Draft               Path Properties              September 2018
       is a transmission on the wireless medium.  A high channel
       utilization indicates a congested wireless network.
 
-   See also [ANRW18-Metrics].
-
 5.  Technologies to disseminate Path Properties
 
    [TODO: Is this in scope for this draft?]
@@ -215,6 +213,8 @@ Internet-Draft               Path Properties              September 2018
       suffixes associated with the network, or default gateway IP
       address.  As one PvD is not restricted to one local network
       interface, a PvD may also apply to multiple paths.
+
+
 
 
 

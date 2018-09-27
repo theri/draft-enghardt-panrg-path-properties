@@ -419,10 +419,9 @@ ul.toc li {
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#dynamic-properties" id="dynamic-properties">Dynamic Properties</a>
 </h1>
-<p id="rfc.section.4.p.1">Dynamic Path Properties are expected to change on the timescale of milliseconds and can usually only be approximated and sampled.  They usually relate to performance within the network, e.g. available end-to-end bandwidth.</p>
-<p id="rfc.section.4.p.2">Some of these apply more to the first hop, some apply on the entire path.</p>
-<p id="rfc.section.4.p.3">Some of them may be symmetric and some may be asymmetric, i.e., be different in the upstream direction and in the downstream direction from the point of view of a particular host.</p>
-<p id="rfc.section.4.p.4">Of some of these properties it can be useful to compute aggregates, e.g., averages or minimums.</p>
+<p id="rfc.section.4.p.1">Dynamic Path Properties are expected to change on the timescale of milliseconds.  They usually relate to the state of the path, e.g., regarding performance such as currently available end-to-end bandwidth.  Some of these properties may depend only on the first hop or on the access network, some may depend on the entire path.</p>
+<p id="rfc.section.4.p.2">Typically, Dynamic Properties can only be approximated and sampled, and might be made available in an aggregated form, such as averages or minimums.  Dynamic Path Properties can be measured by the endpoint itself or somethere in the network.  See <a href="#ANRW18-Metrics" class="xref">[ANRW18-Metrics]</a> for a discussion of how to measure some dynamic path properties at the endpoint.</p>
+<p id="rfc.section.4.p.3">Some of these properties may be symmetric and some may be asymmetric, i.e., be different in the upstream direction and in the downstream direction from the point of view of a particular host.</p>
 <p></p>
 
 <dl>
@@ -443,7 +442,6 @@ ul.toc li {
 <dt>Wireless Channel utilization:</dt>
 <dd style="margin-left: 8">Percentage of time during which there is a transmission on the wireless medium. A high channel utilization indicates a congested wireless network.</dd>
 </dl>
-<p id="rfc.section.4.p.6">See also <a href="#ANRW18-Metrics" class="xref">[ANRW18-Metrics]</a>.</p>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#technologies-to-disseminate-path-properties" id="technologies-to-disseminate-path-properties">Technologies to disseminate Path Properties</a>
 </h1>
