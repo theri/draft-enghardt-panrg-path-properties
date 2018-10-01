@@ -5,8 +5,8 @@
 PANRG                                                        T. Enghardt
 Internet-Draft                                                 TU Berlin
 Intended status: Informational                           C. Kraehenbuehl
-Expires: March 31, 2019                                      ETH Zuerich
-                                                      September 27, 2018
+Expires: April 4, 2019                                       ETH Zuerich
+                                                        October 01, 2018
 
 
                     A Vocabulary of Path Properties
@@ -14,9 +14,9 @@ Expires: March 31, 2019                                      ETH Zuerich
 
 Abstract
 
-   This document defines and categorizes information about paths that an
-   endpoint might have or want to have.  It addresses the first of the
-   questions in Path-Aware Networking [I-D.irtf-panrg-questions].
+   This document defines and categorizes information about Internet
+   paths that an endpoint might have or want to have.  This information
+   is expressed as properties of the path between two endpoints.
 
 Status of This Memo
 
@@ -33,7 +33,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 31, 2019.
+   This Internet-Draft will expire on April 4, 2019.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Enghardt & Kraehenbuehl  Expires March 31, 2019                 [Page 1]
+Enghardt & Kraehenbuehl   Expires April 4, 2019                 [Page 1]
 
-Internet-Draft               Path Properties              September 2018
+Internet-Draft               Path Properties                October 2018
 
 
 Table of Contents
@@ -73,19 +73,23 @@ Table of Contents
 
 1.  Introduction
 
-   As the current Internet provides a best-effort bit pipe, endpoints do
-   not know much about the path to other endpoints.  A Path Aware
-   Network exposes information about one or multiple paths through the
-   network to endpoints, so that endpoints can use this information.
+   Because the current Internet provides a best-effort bit pipe,
+   endpoints do not know much about the path to other endpoints.  A Path
+   Aware Network exposes information about one or multiple paths through
+   the network to endpoints, so that endpoints can use this information.
 
    Such path properties may be relatively static, e.g., the nature of
    the access technology on the first hop, or relatively dynamic, e.g.,
    current Round Trip Time.
 
+   This document addresses the first of the questions in Path-Aware
+   Networking [I-D.irtf-panrg-questions], which is a product of the
+   PANRG in the IRTF.
+
 2.  Static Properties
 
-   Static Path Properties are not expected to change very often, e.g.,
-   they stay constant within the lifetime of a connection to another
+   Static Path Properties are not expected to change very often: they
+   stay constant within the lifetime of a connection to another
    endpoint.  They usually relate to the access network within the first
    hop or the first few hops.
 
@@ -101,18 +105,17 @@ Table of Contents
 
    Monetary Cost:  This is information related to billing, data caps,
       etc.  It could be the allowed monthly data cap, the start and end
+
+
+
+
+Enghardt & Kraehenbuehl   Expires April 4, 2019                 [Page 2]
+
+Internet-Draft               Path Properties                October 2018
+
+
       of a billing period, the monetary cost per Megabyte sent or
       received, etc.
-
-
-
-
-
-
-Enghardt & Kraehenbuehl  Expires March 31, 2019                 [Page 2]
-
-Internet-Draft               Path Properties              September 2018
-
 
 3.  Topology Properties
 
@@ -147,10 +150,10 @@ Internet-Draft               Path Properties              September 2018
 4.  Dynamic Properties
 
    Dynamic Path Properties are expected to change on the timescale of
-   milliseconds.  They usually relate to the state of the path, e.g.,
-   regarding performance such as currently available end-to-end
-   bandwidth.  Some of these properties may depend only on the first hop
-   or on the access network, some may depend on the entire path.
+   milliseconds.  They usually relate to the state of the path, such as
+   the currently available end-to-end bandwidth.  Some of these
+   properties may depend only on the first hop or on the access network,
+   some may depend on the entire path.
 
    Typically, Dynamic Properties can only be approximated and sampled,
    and might be made available in an aggregated form, such as averages
@@ -159,16 +162,17 @@ Internet-Draft               Path Properties              September 2018
    discussion of how to measure some dynamic path properties at the
    endpoint.
 
-   Some of these properties may be symmetric and some may be asymmetric,
-   i.e., be different in the upstream direction and in the downstream
-   direction from the point of view of a particular host.
 
 
 
-Enghardt & Kraehenbuehl  Expires March 31, 2019                 [Page 3]
+Enghardt & Kraehenbuehl   Expires April 4, 2019                 [Page 3]
 
-Internet-Draft               Path Properties              September 2018
+Internet-Draft               Path Properties                October 2018
 
+
+   These properties may be symmetric or asymmetric.  For example, an
+   asymmetric property may be different in the upstream direction and in
+   the downstream direction from the point of view of a particular host.
 
    Available bandwidth:  Maximum number of bytes per second that can be
       sent or received over this path.  This depends on the available
@@ -217,13 +221,9 @@ Internet-Draft               Path Properties              September 2018
 
 
 
-
-
-
-
-Enghardt & Kraehenbuehl  Expires March 31, 2019                 [Page 4]
+Enghardt & Kraehenbuehl   Expires April 4, 2019                 [Page 4]
 
-Internet-Draft               Path Properties              September 2018
+Internet-Draft               Path Properties                October 2018
 
 
 6.  Security Considerations
@@ -258,7 +258,7 @@ Internet-Draft               Path Properties              September 2018
 
 Acknowledgments
 
-   TODO
+   Thanks to Paul Hoffman for feedback and editorial changes.
 
 Authors' Addresses
 
@@ -277,4 +277,4 @@ Authors' Addresses
 
 
 
-Enghardt & Kraehenbuehl  Expires March 31, 2019                 [Page 5]
+Enghardt & Kraehenbuehl   Expires April 4, 2019                 [Page 5]
