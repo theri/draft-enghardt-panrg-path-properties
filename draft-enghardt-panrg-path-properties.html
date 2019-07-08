@@ -298,9 +298,9 @@ ul.toc li {
 
   <meta name="dct.creator" content="Enghardt, T. and C. Kr&#228;henb&#252;hl" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-enghardt-panrg-path-properties-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-3-11" />
-  <meta name="dct.abstract" content="This document defines and categorizes information about Internet paths that an entity, such as an endpoint, might have or want to have.  This information is expressed as properties of paths between two endpoints." />
-  <meta name="description" content="This document defines and categorizes information about Internet paths that an entity, such as an endpoint, might have or want to have.  This information is expressed as properties of paths between two endpoints." />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-7-08" />
+  <meta name="dct.abstract" content="This document defines and categorizes information about Internet paths that an entity, such as a host, might have or want to have.  This information is expressed as properties of paths between two hosts." />
+  <meta name="description" content="This document defines and categorizes information about Internet paths that an entity, such as a host, might have or want to have.  This information is expressed as properties of paths between two hosts." />
 
 </head>
 
@@ -322,12 +322,12 @@ ul.toc li {
 <td class="right">C. Kr&#228;henb&#252;hl</td>
 </tr>
 <tr>
-<td class="left">Expires: September 12, 2019</td>
+<td class="left">Expires: January 9, 2020</td>
 <td class="right">ETH Z&#252;rich</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">March 11, 2019</td>
+<td class="right">July 08, 2019</td>
 </tr>
 
     	
@@ -338,12 +338,12 @@ ul.toc li {
   <span class="filename">draft-enghardt-panrg-path-properties-latest</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
-<p>This document defines and categorizes information about Internet paths that an entity, such as an endpoint, might have or want to have.  This information is expressed as properties of paths between two endpoints.</p>
+<p>This document defines and categorizes information about Internet paths that an entity, such as a host, might have or want to have.  This information is expressed as properties of paths between two hosts.</p>
 <h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on September 12, 2019.</p>
+<p>This Internet-Draft will expire on January 9, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -380,18 +380,18 @@ ul.toc li {
   <h1 id="rfc.section.1">
 <a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
 </h1>
-<p id="rfc.section.1.p.1">Because the current Internet provides an IP-based best-effort bit pipe, endpoints have little information about paths to other endpoints.  A Path Aware Network exposes information about one or multiple paths through the network to endpoints or the network infrastructure.</p>
+<p id="rfc.section.1.p.1">Because the current Internet provides an IP-based best-effort bit pipe, hosts have little information about paths to other hosts.  A Path Aware Network exposes information about one or multiple paths through the network to hosts or the network infrastructure.</p>
 <p id="rfc.section.1.p.2">It is impossible to provide an exhaustive list of path properties, as with every new technology and protocol, novel properties might become relevant.  In this document, we specify a set of path properties which might be useful in the following use cases: Traffic policies, network monitoring, and path selection.</p>
 <p></p>
 
 <ul>
-<li>Traffic policies: Entities such as network operators or end users may want to define traffic policies leveraging path awareness.  Such policies can allow or disallow sending traffic over specific networks or nodes, select an appropriate protocol depending on the capabilities of the on-path devices, or adjust protocol parameters to an existing path.  An example of a traffic policy is a video streaming application choosing an (initial) video quality based on the achievable data rate, or the monetary cost of the link using a volume-based or flat-rate cost model.  Another example is an enterprise network where all traffic has to go through a firewall, in which case the endpoint needs to be aware of on-path firewalls.</li>
+<li>Traffic policies: Entities such as network operators or end users may want to define traffic policies leveraging path awareness.  Such policies can allow or disallow sending traffic over specific networks or nodes, select an appropriate protocol depending on the capabilities of the on-path devices, or adjust protocol parameters to an existing path.  An example of a traffic policy is a video streaming application choosing an (initial) video quality based on the achievable data rate, or the monetary cost of the link using a volume-based or flat-rate cost model.  Another example is an enterprise network where all traffic has to go through a firewall, in which case the host needs to be aware of on-path firewalls.</li>
 <li>Network monitoring: Network operators can use path properties (e.g., measured by on-path devices), to observe Quality of Service (QoS) characteristics of recent end-user traffic, and identify potential problems with their network early on, before the end-user complains.</li>
-<li>Path selection: In some cases, entities can choose to use a certain path (or subset of paths) from a set of paths to achieve a specific goal.  As the possible benefits of a well chosen path varies based on the goal, as a baseline, a path selection algorithm should aim to not perform worse than the default case most of the time.  Depending on the goal, an entity may prefer paths with different properties, e.g., retrieving a small webpage as quickly as possible requires low latency paths, or retrieving a large file in a peer-to-peer network requires paths with high achievable data rate.  Additionally, there may be trade-offs between path properties (e.g., latency and data rate), and entities may influence these trade-offs with their choices.  A network (e.g., an AS) can adjust its path selection for internal or external routing based on the path properties.  In BGP, the Multi Exit Discriminator (MED) attribute decides which path to choose if other attributes are equal; in a path aware network, instead of using this single MED value, other properties such as maximum or available/expected data rate could additionally be used to improve load balancing.  An endpoint might be able to select between a set of paths, either if there are several paths to the same destination (e.g., if the endpoint is a mobile device with two wireless interfaces, both providing a path), or if there are several destinations, and thus several paths, providing the same service (e.g., Application-Layer Traffic Optimization (ALTO) <a href="#RFC5693" class="xref">[RFC5693]</a>, an application layer peer-to-peer protocol allowing endpoints a better-than-random peer selection).  Care needs to be taken when selecting paths based on path properties, as path properties that were previously measured may have become outdated and, thus, useless to predict the path properties of packets sent now.</li>
+<li>Path selection: In some cases, entities can choose to use a certain path (or subset of paths) from a set of paths to achieve a specific goal.  As the possible benefits of a well chosen path varies based on the goal, as a baseline, a path selection algorithm should aim to not perform worse than the default case most of the time.  Depending on the goal, an entity may prefer paths with different properties, e.g., retrieving a small webpage as quickly as possible requires low latency paths, or retrieving a large file in a peer-to-peer network requires paths with high achievable data rate.  Additionally, there may be trade-offs between path properties (e.g., latency and data rate), and entities may influence these trade-offs with their choices.  A network (e.g., an AS) can adjust its path selection for internal or external routing based on the path properties.  In BGP, the Multi Exit Discriminator (MED) attribute decides which path to choose if other attributes are equal; in a path aware network, instead of using this single MED value, other properties such as maximum or available/expected data rate could additionally be used to improve load balancing.  A host might be able to select between a set of paths, either if there are several paths to the same destination (e.g., if the host is a mobile device with two wireless interfaces, both providing a path), or if there are several destinations, and thus several paths, providing the same service (e.g., Application-Layer Traffic Optimization (ALTO) <a href="#RFC5693" class="xref">[RFC5693]</a>, an application layer peer-to-peer protocol allowing hosts a better-than-random peer selection).  Care needs to be taken when selecting paths based on path properties, as path properties that were previously measured may have become outdated and, thus, useless to predict the path properties of packets sent now.</li>
 </ul>
 <p id="rfc.section.1.p.4">Such path properties may be relatively dynamic, e.g. current Round Trip Time, close to the origin, e.g. nature of the access technology on the first hop, or far from the origin, e.g. list of ASes traversed.</p>
 <p id="rfc.section.1.p.5">Usefulness over time is fundamentally different for dynamic and non-dynamic properties.  The merit of a momentary measurement of a dynamic path property diminishes greatly as time goes on, e.g. the merit of an RTT measurement from a few seconds ago is quite small, while a non-dynamic path property might stay relevant, e.g. a NAT can be assumed to stay on a path during the lifetime of a connection, as the removal of the NAT would break the connection.</p>
-<p id="rfc.section.1.p.6">Non-dynamic properties are further separated into (local) domain properties related to the first few hops of the connection, and backbone properties related to the remaining hops.  Domain properties expose a high amount of information to endpoints and strongly influence the connection behavior while there is little influence and information about backbone properties.</p>
+<p id="rfc.section.1.p.6">Non-dynamic properties are further separated into (local) domain properties related to the first few hops of the connection, and backbone properties related to the remaining hops.  Domain properties expose a high amount of information to hosts and strongly influence the connection behavior while there is little influence and information about backbone properties.</p>
 <p id="rfc.section.1.p.7">Dynamic properties are not separated into domain and backbone properties, since most of these properties are defined for a complete path and it is difficult and seldom useful to define them on part of the path.  There are exceptions such as dynamic wireless access properties, but these do not justify separation into different categories.</p>
 <p id="rfc.section.1.p.8">This document addresses the first of the questions in Path-Aware Networking <a href="#I-D.irtf-panrg-questions" class="xref">[I-D.irtf-panrg-questions]</a>, which is a product of the PANRG in the IRTF.</p>
 <h1 id="rfc.section.2">
@@ -400,84 +400,94 @@ ul.toc li {
 <p></p>
 
 <dl>
+<dt>Node:</dt>
+<dd style="margin-left: 8">An entity which processes packets, e.g., sends, receives, forwards, or modifies them.</dd>
+<dt>Host:</dt>
+<dd style="margin-left: 8">A node that processes packets that are explicitly addressed to itself.</dd>
+<dt>Router:</dt>
+<dd style="margin-left: 8">A node that processes packets that are not explicitly addressed to itself.</dd>
+<dt>Link:</dt>
+<dd style="margin-left: 8">A medium or communication facility that connects two or more nodes with each other and enables them to exchange packets. A link can be physical, e.g., a WiFi network which connects an Access Point to stations, or virtual, e.g., a virtual switch which connects two virtual machines hosted on the same physical machine.</dd>
 <dt>Path element:</dt>
-<dd style="margin-left: 8">A path element is a device (including the endpoints), or link used to connect two devices and transmit information on a specific layer.  Path elements may exist on multiple layers (e.g., the endpoint corresponds to a path element on every layer), may be hidden on higher layers (e.g., a layer 2 switch in the local network), or a path element may be an aggregation of several path elements on a lower layer (e.g., the link connecting the endpoints on the transport layer being an aggregation of all network layer path elements).</dd>
-<dt>Path segment:</dt>
-<dd style="margin-left: 8">A path segment is an ordered set of path elements at the network layer that can be traversed by a packet.</dd>
+<dd style="margin-left: 8">Either a node or a link.</dd>
 <dt>Path:</dt>
-<dd style="margin-left: 8">A path is defined as an ordered set of path elements at the network layer between two endpoints. A path can be traversed by a packet.</dd>
+<dd style="margin-left: 8">A sequence of adjacent path elements, alternating between nodes and links, starting and ending with a host. A path can be viewed as an abstraction on a specific layer, omitting lower layer path elements. For example, a router implementing IPv6 may be a path element on a path when considering the network layer. If this router does not implement transport layer functionality, it is hidden when a higher layer, such as the transport or application layer, is considered. In the case of multicast or broadcast, a single packet may be sent over multiple paths at once &#8211; one path for each combination of sending and receiving host.</dd>
+<dt>Subpath:</dt>
+<dd style="margin-left: 8">Given a path, a subpath is a sequence of adjacent path elements of this path, starting and ending with a node.</dd>
 <dt>Flow:</dt>
-<dd style="margin-left: 8">Several packets traversing the same path elements can be combined into a flow (e.g., all packets sent within a UDP session which traverse the same path elements).  As a special case, a flow can consist of just one packet.</dd>
+<dd style="margin-left: 8">One or multiple packets which are traversing the same subpath or path. For example, a flow can consist of all packets sent within a TCP session with the same five-tuple between two hosts, or it can consist of all packets sent on the same physical link.</dd>
 <dt>Property:</dt>
-<dd style="margin-left: 8">A property describes a trait of a set of path elements (e.g., capacity of a link, is device X a firewall, one-way maximum data rate which is the minimum of all links&#8217; maximum data rates), or a trait of a flow being sent on a set of path elements (e.g., RTT, one-way delay).  A property is thus described by a tuple containing the ordered set of path elements, the set of packets traversing the path (the flow) or an empty set if no packets are relevant for the property, the name of the trait (e.g., maximum data rate), and the value of the trait (e.g., 100mbps).</dd>
-<dt>Aggregated Property:</dt>
-<dd style="margin-left: 8">A property can be aggregated over a set of path elements (e.g., MTU in the network backbone as the minimum MTU of the individual path elements), or over a set of packets (e.g., median one-way latency of all packets during the last second), or over both (e.g., average time a packets spends in buffers outside the local network).  Aggregation can be numerical (average, sum, min, &#8230;), logical (true if all are true, true if at least X are true, &#8230;), or an arbitrary function which maps a set of input properties to an output property.</dd>
-<dt>Measured &amp; Potential Property:</dt>
-<dd style="margin-left: 8">A property can be classified by timescale into a measured property, based on concrete previous and current measurements, and a potential property, which is a property with predicted characteristics, possibly including the reliability of such predictions.  An example of a potential property with a high reliability is the maximum data rate of an ethernet link in the local network during the next day, while a potential property with a lower reliability is the expected one-way latency of packets sent to an endpoint on the other side of the planet during the next second.  The notion of reliability depends on the property, it might be the confidence level and interval for numerical properties or the likelihood that a property holds for non-numerical properties.</dd>
+<dd style="margin-left: 8">A trait of one or a sequence of path elements, or a trait of a flow with respect to one or a sequence of path elements. An example of a link property is the maximum data rate that can be sent over the link. An example of a node property is the administrative domain that the node belongs to. An example of a property of a flow with respect to a subpath is the aggregated one-way delay of the flow being sent from one node to another node over a subpath.  A property is thus described by a tuple containing the sequence of path elements, the flow or an empty set if no packets are relevant for the property, the name of the property (e.g., maximum data rate), and the value of the property (e.g., 1Gbps).</dd>
+<dt>Aggregated property:</dt>
+<dd style="margin-left: 8">A collection of multiple values of a property into a single value, according to a function. A property can be aggregated over multiple path elements (i.e., a path), e.g., the MTU of a path as the minimum MTU of all links on the path, over multiple packets (i.e., a flow), e.g., the median one-way latency of all packets between two nodes, or over both, e.g., the mean of the queueing delays of a flow on all nodes along a path.  The aggregation function can be numerical, e.g., median, sum, minimum, it can be logical, e.g., &#8220;true if all are true&#8221;, &#8220;true if at least 50\% of values are true&#8221;, or an arbitrary function which maps multiple input values to an output value.</dd>
+<dt>Measured property:</dt>
+<dd style="margin-left: 8">A property that is observed for a specific path element or path, e.g., using measurements. For example, the one-way delay of a specific packet can be measured.</dd>
+<dt>Estimated property:</dt>
+<dd style="margin-left: 8">An approximate calculation or judgment of the value of a property. For example, an estimated property may describe the expected median one-way latency of packets sent on a path within the next second. An estimated property includes the reliability of the estimate. The notion of reliability depends on the property. For example, it may be the confidence level and interval for numerical properties or the likelihood that a property holds for non-numerical properties.</dd>
 </dl>
 <h1 id="rfc.section.3">
 <a href="#rfc.section.3">3.</a> <a href="#domain-properties" id="domain-properties">Domain Properties</a>
 </h1>
-<p id="rfc.section.3.p.1">Domain path properties relate to path elements within the first hop or the first few hops, which are usually in the same administrative domain as an endpoint considering them.</p>
-<p id="rfc.section.3.p.2">Due to the potential physical proximity and pre-existing trust or contractual relationships between endpoints and path elements within the same domain, domain properties may be more accessible to the endpoint than other properties.</p>
-<p id="rfc.section.3.p.3">Furthermore, endpoints may be able to influence both which domain they are in and which path elements in this domain to connect to, and they may be able to influence the properties of path elements within this domain.  For example, a user might select between multiple potential adjacent path elements by selecting between multiple available WiFi Access Points. Or when connected to an Access Point, the user may move closer to enable their device to use a different access technology, potentially increasing the data rate available to the device.  Another example is a user changing their data plan to reduce the Monetary Cost to transmit a given amount of data across a network.</p>
+<p id="rfc.section.3.p.1">Domain path properties relate to path elements within the first hop or the first few hops, which are usually in the same administrative domain as a host considering them.</p>
+<p id="rfc.section.3.p.2">Due to the potential physical proximity and pre-existing trust or contractual relationships between hosts and path elements within the same domain, domain properties may be more accessible to the host than other properties.</p>
+<p id="rfc.section.3.p.3">Furthermore, hosts may be able to influence both which domain they are in and which path elements in this domain to connect to, and they may be able to influence the properties of path elements within this domain.  For example, a user might select between multiple potential adjacent links by selecting between multiple available WiFi Access Points. Or when connected to an Access Point, the user may move closer to enable their device to use a different access technology, potentially increasing the data rate available to the device.  Another example is a user changing their data plan to reduce the Monetary Cost to transmit a given amount of data across a network.</p>
 <p></p>
 
 <dl>
 <dt>Access Technology:</dt>
 <dd style="margin-left: 8">The physical or link layer technology used for transmitting or receiving a flow on one or multiple path elements in the same domain. The Access Technology may be given in an abstract way, e.g., as a WiFi, Wired Ethernet, or Cellular link. It may also be given as a specific technology, e.g., as a 2G, 3G, 4G, or 5G cellular link, or an 802.11a, b, g, n, or ac WiFi link. Other path elements relevant to the access technology may include on-path devices, such as elements of a cellular backbone network. Note that there is no common registry of possible values for this property.</dd>
 <dt>Monetary Cost:</dt>
-<dd style="margin-left: 8">The price to be paid to transmit a specific flow across a path segment.</dd>
+<dd style="margin-left: 8">The price to be paid to transmit a specific flow across a subpath.</dd>
 </dl>
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#backbone-properties" id="backbone-properties">Backbone Properties</a>
 </h1>
-<p id="rfc.section.4.p.1">Backbone path properties relate to path elements not within the same domain as an endpoint considering them, thus, in the backbone from the endpoint&#8217;s point of view.</p>
-<p id="rfc.section.4.p.2">Typically, backbone properties are less accessible to an endpoint than domain properties, due to the potential increased distance and the lack of pre-existing trust or contractual relationship.</p>
-<p id="rfc.section.4.p.3">Additionally, endpoints are less likely to be able to influence which path elements form their path in the backbone, as well as their properties.</p>
-<p id="rfc.section.4.p.4">Some path properties relate to the entire path, part of which often lies outside of an endpoint&#8217;s domain. Thus, such properties are listed as Backbone Properties.</p>
+<p id="rfc.section.4.p.1">Backbone path properties relate to path elements not within the same domain as a host considering them, thus, in the backbone from the host&#8217;s point of view.</p>
+<p id="rfc.section.4.p.2">Typically, backbone properties are less accessible to a host than domain properties, due to the potential increased distance and the lack of pre-existing trust or contractual relationship.</p>
+<p id="rfc.section.4.p.3">Additionally, hosts are less likely to be able to influence which path elements form their path in the backbone, as well as their properties.</p>
+<p id="rfc.section.4.p.4">Some path properties relate to the entire path or to subpaths, part of which often lies outside of a host&#8217;s domain. Thus, such properties are listed as Backbone Properties.</p>
 <p></p>
 
 <dl>
 <dt>Presence of a certain network function on the path:</dt>
-<dd style="margin-left: 8">Indicates that a certain path element performs a certain network function on a flow, e.g., whether the path element acts as a proxy, as a firewall, or performs Network Address Translation (NAT). This path element may be either in the same domain as the endpoint or in a different domain, i.e., the backbone.</dd>
+<dd style="margin-left: 8">Indicates that a node performs a certain network function on a flow, e.g., whether the node acts as a proxy, as a firewall, or performs Network Address Translation (NAT). This node may be either in the same domain as the host or in a different domain, i.e., the backbone.</dd>
 <dt>Administrative Entity:</dt>
-<dd style="margin-left: 8">The administrative entity, e.g., the AS, to which a path element or path segment belongs.</dd>
+<dd style="margin-left: 8">The administrative entity, e.g., the AS, to which a path element or subpath belongs.</dd>
 <dt>Disjointness:</dt>
 <dd style="margin-left: 8">For a set of two paths, the number of shared path elements can be a measure of intersection (e.g., Jaccard coefficient, which is the number of shared elements divided by the total number of elements). Conversely, the number of non-shared path elements can be a measure of disjointness (e.g., 1 - Jaccard coefficient). A multipath protocol might use disjointness of paths as a metric to reduce the number of single points of failure.</dd>
 <dt>Path MTU:</dt>
-<dd style="margin-left: 8">The maximum size, in octets, of an IP packet that can be transmitted without fragmentation on a path segment.</dd>
+<dd style="margin-left: 8">The maximum size, in octets, of an IP packet that can be transmitted without fragmentation on a subpath.</dd>
 <dt>Transport Protocols available:</dt>
-<dd style="margin-left: 8">Whether a specific transport protocol can be used to establish a connection over a path or path segment. An endpoint may cache its knowledge about recent successfully established connections using specific protocols, e.g., a QUIC connection, or an MPTCP subflow, over a specific path.</dd>
+<dd style="margin-left: 8">Whether a specific transport protocol can be used to establish a connection over a path or subpath. A host may cache its knowledge about recent successfully established connections using specific protocols, e.g., a QUIC connection, or an MPTCP subflow.</dd>
 <dt>Protocol Features available:</dt>
-<dd style="margin-left: 8">Whether a specific protocol feature is available over this path, e.g., Explicit Congestion Notification (ECN), or TCP Fast Open.</dd>
+<dd style="margin-left: 8">Whether a specific protocol feature is available over a path or subpath, e.g., Explicit Congestion Notification (ECN), or TCP Fast Open.</dd>
 </dl>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#dynamic-properties" id="dynamic-properties">Dynamic Properties</a>
 </h1>
-<p id="rfc.section.5.p.1">Dynamic path properties relate to a path segment with respect to the transmission of an individual packet or of a flow over this path segment.  Properties related to a path element which constitutes a single layer 2 domain are abstracted from the used physical and link layer technology, similar to <a href="#RFC8175" class="xref">[RFC8175]</a>.</p>
-<p id="rfc.section.5.p.2">Typically, Dynamic Properties can only be approximated and sampled, and might be made available in an aggregated form, such as averages or minimums.  Dynamic Path Properties can be measured by the endpoint itself or somethere in the network.  See <a href="#ANRW18-Metrics" class="xref">[ANRW18-Metrics]</a> for a discussion of how to measure some dynamic path properties at the endpoint.</p>
+<p id="rfc.section.5.p.1">Dynamic path properties relate to the transmission of an individual packet or of a flow over a subpath.  Properties related to a path element which constitutes a single layer 2 domain are abstracted from the used physical and link layer technology, similar to <a href="#RFC8175" class="xref">[RFC8175]</a>.</p>
+<p id="rfc.section.5.p.2">Typically, Dynamic Properties can be measured or approximated, and might be made available in an aggregated form, such as averages or minimums.  Dynamic Path Properties can be measured by the host itself or by a different entity.  See <a href="#ANRW18-Metrics" class="xref">[ANRW18-Metrics]</a> for a discussion of how to measure some dynamic path properties at the host.</p>
 <p id="rfc.section.5.p.3">Some dynamic properties are defined in different directions for the same path element, e.g., for transmitting and receiving packets.</p>
 <p></p>
 
 <dl>
 <dt>Maximum Data Rate (Transmit/Receive):</dt>
-<dd style="margin-left: 8">The theoretical maximum data rate, in bits per second, that can be achieved on a link, path segment, or path, for receiving or transmitting traffic.</dd>
+<dd style="margin-left: 8">The theoretical maximum data rate, in bits per second, that can be achieved on a link, subpath, or path, for receiving or transmitting traffic.</dd>
 <dt>Current Data Rate (Transmit/Receive):</dt>
 <dd style="margin-left: 8">The data rate, in bits per second, at which a link is currently receiving or transmitting traffic.</dd>
 <dt>Latency:</dt>
-<dd style="margin-left: 8">The time delay between sending a packet on a path element and receiving the same packet on a different path element.</dd>
+<dd style="margin-left: 8">The time delay between a node sending a packet and a different node on the same path receiving the same packet.</dd>
 <dt>Latency variation:</dt>
-<dd style="margin-left: 8">The variation of the Latency within a flow.</dd>
+<dd style="margin-left: 8">The variation of the latency within a flow.</dd>
 <dt>Packet Loss:</dt>
-<dd style="margin-left: 8">The percentage of packets within a flow which are sent by one path element, but not received by a different path element.</dd>
+<dd style="margin-left: 8">The percentage of packets within a flow which are sent by one node, but not received by a different node.</dd>
 <dt>Congestion:</dt>
 <dd style="margin-left: 8">Whether a protocol feature such as ECN has provided information that there currently is congestion on a path.</dd>
 </dl>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a>
 </h1>
-<p id="rfc.section.6.p.1">If devices are basing policy or path selection decisions on path properties, they need to rely on the accuracy of path properties that other devices communicate to them.  In order to be able to trust such path properties, devices may need to establish a trust relationship or be able to verify the authenticity, integrity, and correctness of path properties received from another device.</p>
+<p id="rfc.section.6.p.1">If nodes are basing policy or path selection decisions on path properties, they need to rely on the accuracy of path properties that other devices communicate to them.  In order to be able to trust such path properties, nodes may need to establish a trust relationship or be able to verify the authenticity, integrity, and correctness of path properties received from another node.</p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
 </h1>
@@ -493,7 +503,7 @@ ul.toc li {
 <tr>
 <td class="reference"><b id="I-D.irtf-panrg-questions">[I-D.irtf-panrg-questions]</b></td>
 <td class="top">
-<a>Trammell, B.</a>, "<a href="http://tools.ietf.org/html/draft-irtf-panrg-questions-01">Open Questions in Path Aware Networking</a>", Internet-Draft draft-irtf-panrg-questions-01, October 2018.</td>
+<a>Trammell, B.</a>, "<a href="http://tools.ietf.org/html/draft-irtf-panrg-questions-02">Open Questions in Path Aware Networking</a>", Internet-Draft draft-irtf-panrg-questions-02, May 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC5693">[RFC5693]</b></td>
@@ -507,7 +517,7 @@ ul.toc li {
 </tr>
 </tbody></table>
 <h1 id="rfc.acknowledgments"><a href="#rfc.acknowledgments">Acknowledgments</a></h1>
-<p id="rfc.section.A.p.1">Thanks to the Path-Aware Networking Research Group for the discussion and feedback. Thanks to Adrian Perrig for the feedback. Thanks to Paul Hoffman for the editorial changes.</p>
+<p id="rfc.section.A.p.1">Thanks to the Path-Aware Networking Research Group for the discussion and feedback. Thanks to Adrian Perrig and Matthias Rost for the feedback. Thanks to Paul Hoffman for the editorial changes.</p>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
 <div class="avoidbreak">
   <address class="vcard">
