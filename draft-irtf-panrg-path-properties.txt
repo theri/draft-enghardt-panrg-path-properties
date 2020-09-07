@@ -5,8 +5,8 @@
 PANRG                                                        T. Enghardt
 Internet-Draft                                                   Netflix
 Intended status: Informational                           C. Kraehenbuehl
-Expires: March 8, 2021                                       ETH Zuerich
-                                                      September 04, 2020
+Expires: March 11, 2021                                      ETH Zuerich
+                                                      September 07, 2020
 
 
                     A Vocabulary of Path Properties
@@ -37,7 +37,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 8, 2021.
+   This Internet-Draft will expire on March 11, 2021.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                 [Page 1]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                 [Page 1]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                 [Page 2]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                 [Page 2]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -165,7 +165,7 @@ Internet-Draft               Path Properties              September 2020
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                 [Page 3]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                 [Page 3]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -221,7 +221,7 @@ Internet-Draft               Path Properties              September 2020
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                 [Page 4]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                 [Page 4]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -277,7 +277,7 @@ Internet-Draft               Path Properties              September 2020
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                 [Page 5]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                 [Page 5]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -333,7 +333,7 @@ Internet-Draft               Path Properties              September 2020
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                 [Page 6]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                 [Page 6]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -389,7 +389,7 @@ Internet-Draft               Path Properties              September 2020
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                 [Page 7]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                 [Page 7]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -445,7 +445,7 @@ Internet-Draft               Path Properties              September 2020
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                 [Page 8]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                 [Page 8]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -501,7 +501,7 @@ Internet-Draft               Path Properties              September 2020
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                 [Page 9]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                 [Page 9]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -557,7 +557,7 @@ Internet-Draft               Path Properties              September 2020
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                [Page 10]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                [Page 10]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -613,7 +613,7 @@ Internet-Draft               Path Properties              September 2020
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                [Page 11]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                [Page 11]
 
 Internet-Draft               Path Properties              September 2020
 
@@ -669,4 +669,4 @@ Authors' Addresses
 
 
 
-Enghardt & Kraehenbuehl   Expires March 8, 2021                [Page 12]
+Enghardt & Kraehenbuehl  Expires March 11, 2021                [Page 12]
