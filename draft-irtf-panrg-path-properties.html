@@ -1,13 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>A Vocabulary of Path Properties</title>
+<meta content="Theresa Enghardt" name="author">
+<meta content="Cyrill Krähenbühl" name="author">
+<meta content="
+       Path properties express information about paths across a network and the services provided via such paths.
+In a path-aware network, path properties may be fully or partially available to entities such as hosts.
+This document defines and categorizes path properties.
+Furthermore, the document specifies several path properties which might be useful to hosts or other entities,
+e.g., for selecting between paths or for invoking some of the provided services. 
+    " name="description">
+<meta content="xml2rfc 3.8.0" name="generator">
+<meta content="Internet-Draft" name="keyword">
+<meta content="draft-irtf-panrg-path-properties-latest" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.8.0
+    Python 3.8.10
+    appdirs 1.4.4
+    ConfigArgParse 1.5
+    google-i18n-address 2.4.0
+    html5lib 1.1
+    intervaltree 3.1.0
+    Jinja2 2.11.3
+    kitchen 1.2.6
+    lxml 4.6.3
+    pycairo 1.16.2
+    pycountry 20.7.3
+    pyflakes 2.3.1
+    PyYAML 5.3.1
+    requests 2.22.0
+    setuptools 45.2.0
+    six 1.14.0
+-->
+<link href="draft-irtf-panrg-path-properties.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-
-  <title>A Vocabulary of Path Properties</title>
-
-  
 <style type="text/css">/*<![CDATA[*/
 
 body {
@@ -279,355 +310,571 @@ ul.toc li {
   /*]]>*/</style>
   <meta name="viewport" content="initial-scale=1.0">
 
-
-  <link href="#rfc.toc" rel="Contents">
-<link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
-<link href="#rfc.section.2" rel="Chapter" title="2 Terminology">
-<link href="#rfc.section.3" rel="Chapter" title="3 Use Cases for Path Properties">
-<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Path Selection">
-<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Protocol Selection">
-<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Service Invocation">
-<link href="#rfc.section.4" rel="Chapter" title="4 Examples of Path Properties">
-<link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations">
-<link href="#rfc.section.6" rel="Chapter" title="6 IANA Considerations">
-<link href="#rfc.references" rel="Chapter" title="7 Informative References">
-<link href="#rfc.acknowledgments" rel="Chapter">
-<link href="#rfc.authors" rel="Chapter">
-
-
-  <meta name="generator" content="xml2rfc version 2.36.0 - https://tools.ietf.org/tools/xml2rfc" />
-  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
-
-  <meta name="dct.creator" content="Enghardt, T. and C. Kr&#228;henb&#252;hl" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-irtf-panrg-path-properties-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2020-09-07" />
-  <meta name="dct.abstract" content="Path properties express information about paths across a network and the services provided via such paths.  In a path-aware network, path properties may be fully or partially available to entities such as hosts.  This document defines and categorizes path properties.  Furthermore, the document specifies several path properties which might be useful to hosts or other entities, e.g., for selecting between paths or for invoking some of the provided services." />
-  <meta name="description" content="Path properties express information about paths across a network and the services provided via such paths.  In a path-aware network, path properties may be fully or partially available to entities such as hosts.  This document defines and categorizes path properties.  Furthermore, the document specifies several path properties which might be useful to hosts or other entities, e.g., for selecting between paths or for invoking some of the provided services." />
-
+<link href="rfc-local.css" rel="stylesheet" type="text/css">
+<script type="application/javascript">async function addMetadata(){try{const e=document.styleSheets[0].cssRules;for(let t=0;t<e.length;t++)if(/#identifiers/.exec(e[t].selectorText)){const a=e[t].cssText.replace("#identifiers","#external-updates");document.styleSheets[0].insertRule(a,document.styleSheets[0].cssRules.length)}}catch(e){console.log(e)}const e=document.getElementById("external-metadata");if(e)try{var t,a="",o=function(e){const t=document.getElementsByTagName("meta");for(let a=0;a<t.length;a++)if(t[a].getAttribute("name")===e)return t[a].getAttribute("content");return""}("rfc.number");if(o){t="https://www.rfc-editor.org/rfc/rfc"+o+".json";try{const e=await fetch(t);a=await e.json()}catch(e){t=document.URL.indexOf("html")>=0?document.URL.replace(/html$/,"json"):document.URL+".json";const o=await fetch(t);a=await o.json()}}if(!a)return;e.style.display="block";const s="",d="https://datatracker.ietf.org/doc",n="https://datatracker.ietf.org/ipr/search",c="https://www.rfc-editor.org/info",l=a.doc_id.toLowerCase(),i=a.doc_id.slice(0,3).toLowerCase(),f=a.doc_id.slice(3).replace(/^0+/,""),u={status:"Status",obsoletes:"Obsoletes",obsoleted_by:"Obsoleted By",updates:"Updates",updated_by:"Updated By",see_also:"See Also",errata_url:"Errata"};let h="<dl style='overflow:hidden' id='external-updates'>";["status","obsoletes","obsoleted_by","updates","updated_by","see_also","errata_url"].forEach(e=>{if("status"==e){a[e]=a[e].toLowerCase();var t=a[e].split(" "),o=t.length,w="",p=1;for(let e=0;e<o;e++)p<o?w=w+r(t[e])+" ":w+=r(t[e]),p++;a[e]=w}else if("obsoletes"==e||"obsoleted_by"==e||"updates"==e||"updated_by"==e){var g,m="",b=1;g=a[e].length;for(let t=0;t<g;t++)a[e][t]&&(a[e][t]=String(a[e][t]).toLowerCase(),m=b<g?m+"<a href='"+s+"/rfc/".concat(a[e][t])+"'>"+a[e][t].slice(3)+"</a>, ":m+"<a href='"+s+"/rfc/".concat(a[e][t])+"'>"+a[e][t].slice(3)+"</a>",b++);a[e]=m}else if("see_also"==e){var y,L="",C=1;y=a[e].length;for(let t=0;t<y;t++)if(a[e][t]){a[e][t]=String(a[e][t]);var _=a[e][t].slice(0,3),v=a[e][t].slice(3).replace(/^0+/,"");L=C<y?"RFC"!=_?L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+_+" "+v+"</a>, ":L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+v+"</a>, ":"RFC"!=_?L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+_+" "+v+"</a>":L+"<a href='"+s+"/info/"+_.toLowerCase().concat(v.toLowerCase())+"'>"+v+"</a>",C++}a[e]=L}else if("errata_url"==e){var R="";R=a[e]?R+"<a href='"+a[e]+"'>Errata exist</a> | <a href='"+d+"/"+l+"'>Datatracker</a>| <a href='"+n+"/?"+i+"="+f+"&submit="+i+"'>IPR</a> | <a href='"+c+"/"+l+"'>Info page</a>":"<a href='"+d+"/"+l+"'>Datatracker</a> | <a href='"+n+"/?"+i+"="+f+"&submit="+i+"'>IPR</a> | <a href='"+c+"/"+l+"'>Info page</a>",a[e]=R}""!=a[e]?"Errata"==u[e]?h+=`<dt>More info:</dt><dd>${a[e]}</dd>`:h+=`<dt>${u[e]}:</dt><dd>${a[e]}</dd>`:"Errata"==u[e]&&(h+=`<dt>More info:</dt><dd>${a[e]}</dd>`)}),h+="</dl>",e.innerHTML=h}catch(e){console.log(e)}else console.log("Could not locate metadata <div> element");function r(e){return e.charAt(0).toUpperCase()+e.slice(1)}}window.removeEventListener("load",addMetadata),window.addEventListener("load",addMetadata);</script>
 </head>
-
 <body>
-
-  <table class="header">
-    <tbody>
-    
-    	<tr>
-<td class="left">PANRG</td>
-<td class="right">T. Enghardt</td>
-</tr>
-<tr>
+<script src="metadata.min.js"></script>
+<table class="ears">
+<thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="right">Netflix</td>
-</tr>
-<tr>
-<td class="left">Intended status: Informational</td>
-<td class="right">C. Kr&#228;henb&#252;hl</td>
-</tr>
-<tr>
-<td class="left">Expires: March 11, 2021</td>
-<td class="right">ETH Z&#252;rich</td>
-</tr>
-<tr>
-<td class="left"></td>
-<td class="right">September 07, 2020</td>
-</tr>
-
-    	
-    </tbody>
-  </table>
-
-  <p class="title">A Vocabulary of Path Properties<br />
-  <span class="filename">draft-irtf-panrg-path-properties-latest</span></p>
-  
-  <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
-<p>Path properties express information about paths across a network and the services provided via such paths.  In a path-aware network, path properties may be fully or partially available to entities such as hosts.  This document defines and categorizes path properties.  Furthermore, the document specifies several path properties which might be useful to hosts or other entities, e.g., for selecting between paths or for invoking some of the provided services.</p>
-<h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
-<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
-<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
-<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on March 11, 2021.</p>
-<h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
-<p>Copyright (c) 2020 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
-<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
-
-  
-  <hr class="noprint" />
-  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
-  <ul class="toc">
-
-  	<li>1.   <a href="#rfc.section.1">Introduction</a>
-</li>
-<li>2.   <a href="#rfc.section.2">Terminology</a>
-</li>
-<li>3.   <a href="#rfc.section.3">Use Cases for Path Properties</a>
-</li>
-<ul><li>3.1.   <a href="#rfc.section.3.1">Path Selection</a>
-</li>
-<li>3.2.   <a href="#rfc.section.3.2">Protocol Selection</a>
-</li>
-<li>3.3.   <a href="#rfc.section.3.3">Service Invocation</a>
-</li>
-</ul><li>4.   <a href="#rfc.section.4">Examples of Path Properties</a>
-</li>
-<li>5.   <a href="#rfc.section.5">Security Considerations</a>
-</li>
-<li>6.   <a href="#rfc.section.6">IANA Considerations</a>
-</li>
-<li>7.   <a href="#rfc.references">Informative References</a>
-</li>
-<li><a href="#rfc.acknowledgments">Acknowledgments</a>
-</li>
-<li><a href="#rfc.authors">Authors' Addresses</a>
-</li>
-
-
-  </ul>
-
-  <h1 id="rfc.section.1">
-<a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
-</h1>
-<p id="rfc.section.1.p.1">The current Internet architecture does not explicitly support endpoint discovery of forwarding paths through the network as well as the discovery of properties and services associated with these paths.  Path-aware networking, as defined in Section 1.1 of <a href="#I-D.irtf-panrg-questions" class="xref">[I-D.irtf-panrg-questions]</a>, describes &#8220;endpoint discovery of the properties of paths they use for communication, and endpoint reaction to these properties that affects routing and/or transmission&#8221;.  This document defines such information as path properties, addressing the first of the questions in path-aware networking <a href="#I-D.irtf-panrg-questions" class="xref">[I-D.irtf-panrg-questions]</a>.</p>
-<p id="rfc.section.1.p.2">As terms related to paths have different meanings in different areas of networking, first, this document provides a common terminology to define paths, path elements, and path properties.  Then, this document provides some examples for use cases for path properties.  Finally, the document lists several path properties that may be useful for the mentioned use cases.</p>
-<p id="rfc.section.1.p.3">Note that this document does not assume that any of the listed path properties are actually available to any entity. The question of how entities can discover and distribute path properties in a trustworthy way is out of scope for this document.</p>
-<h1 id="rfc.section.2">
-<a href="#rfc.section.2">2.</a> <a href="#terminology" id="terminology">Terminology</a>
-</h1>
-<p></p>
-
-<dl>
-<dt>Node:</dt>
-<dd style="margin-left: 8">An entity which processes packets, e.g., sends, receives, forwards, or modifies them. A node may be physical or virtual, e.g., a physical device or a service function provided as a virtual element. A node may also be the collection of multiple entities which, as a collection, processes packets, e.g., an entire Autonomous System (AS).</dd>
-<dt>Host:</dt>
-<dd style="margin-left: 8">A node that generally executes application programs on behalf of user(s), employing network and/or Internet communication services in support of this function, as defined in <a href="#RFC1122" class="xref">[RFC1122]</a>.  Note that hosts include both client nodes (e.g., running a web browser) and server nodes (e.g., running a web server).</dd>
-<dt>Link:</dt>
-<dd style="margin-left: 8">A medium or communication facility that connects two or more nodes with each other. A link enables a node to send packets to other nodes.  Links can be physical, e.g., a Wi-Fi network which connects an Access Point to stations, or virtual, e.g., a virtual switch which connects two virtual machines hosted on the same physical machine. A link is unidirectional. As such, bidirectional communication can be modeled as two links between the same nodes in opposite directions.</dd>
-<dt>Path element:</dt>
-<dd style="margin-left: 8">Either a node or a link. For example, a path element can be an Abstract Network Element (ANE) as defined in <a href="#I-D.ietf-alto-path-vector" class="xref">[I-D.ietf-alto-path-vector]</a>.</dd>
-<dt>Path:</dt>
-<dd style="margin-left: 8">A sequence of adjacent path elements over which a packet can be transmitted, starting and ending with a node. A path is unidirectional. Paths are time-dependent, i.e., the sequence of path elements over which packets are sent from one node to another may change. A path is defined between two nodes. For multicast or broadcast, a packet may be sent by one node and received by multiple nodes. In this case, the packet is sent over multiple paths at once, one path for each combination of sending and receiving node; these paths do not have to be disjoint. Note that an entity may have only partial visibility of the path elements that comprise a path and visibility may change over time. Different entities may have different visibility of a path and/or treat path elements at different levels of abstraction. For example, a path may be given as a sequence of physical nodes and the links connecting these nodes, or it may be given as a sequence of logical nodes such as a sequence of ASes or an Explicit Route Object (ERO). Similarly, the representation of a path and its properties, as it is known to a specific entity, may be more complex and include details about the physical layer technology, or it may be more abstract and only consist of a specific source and destination which is known to be reachable from that source.</dd>
-<dt>Reverse Path:</dt>
-<dd style="margin-left: 8">The path that is used by a remote node in the context of bidirectional communication.</dd>
-<dt>Subpath:</dt>
-<dd style="margin-left: 8">Given a path, a subpath is a sequence of adjacent path elements of this path.</dd>
-<dt>Flow:</dt>
-<dd style="margin-left: 8">An entity made of packets to which the traits of a path or set of subpaths may be applied in a functional sense. For example, a flow can consist of all packets sent within a TCP session with the same five-tuple between two hosts, or it can consist of all packets sent on the same physical link.</dd>
-<dt>Property:</dt>
-<dd style="margin-left: 8">A trait of one or a sequence of path elements, or a trait of a flow with respect to one or a sequence of path elements. An example of a link property is the maximum data rate that can be sent over the link. An example of a node property is the administrative domain that the node belongs to. An example of a property of a flow with respect to a subpath is the aggregated one-way delay of the flow being sent from one node to another node over this subpath.  A property is thus described by a tuple containing the path element(s), the flow or an empty set if no packets are relevant for the property, the name of the property (e.g., maximum data rate), and the value of the property (e.g., 1Gbps).</dd>
-<dt>Aggregated property:</dt>
-<dd style="margin-left: 8">A collection of multiple values of a property into a single value, according to a function. A property can be aggregated over multiple path elements (i.e., a subpath), e.g., the MTU of a path as the minimum MTU of all links on the path, over multiple packets (i.e., a flow), e.g., the median one-way latency of all packets between two nodes, or over both, e.g., the mean of the queueing delays of a flow on all nodes along a path.  The aggregation function can be numerical, e.g., median, sum, minimum, it can be logical, e.g., &#8220;true if all are true&#8221;, &#8220;true if at least 50\% of values are true&#8221;, or an arbitrary function which maps multiple input values to an output value.</dd>
-<dt>Observed property:</dt>
-<dd style="margin-left: 8">A property that is observed for a specific path element, subpath, or path, e.g., using measurements. For example, the one-way delay of a specific packet transmitted from one node to another node can be measured.</dd>
-<dt>Assessed property:</dt>
-<dd style="margin-left: 8">An approximate calculation or assessment of the value of a property. An assessed property includes the reliability of the calculation or assessment. The notion of reliability depends on the property.  For example, a path property based on an approximate calculation may describe the expected median one-way latency of packets sent on a path within the next second, including the confidence level and interval. A non-numerical assessment may instead include the likelihood that the property holds.</dd>
-</dl>
-<h1 id="rfc.section.3">
-<a href="#rfc.section.3">3.</a> <a href="#use-cases" id="use-cases">Use Cases for Path Properties</a>
-</h1>
-<p id="rfc.section.3.p.1">When a path-aware network exposes path properties to hosts or other entities, these entities may use this information to achieve different goals.  This section lists several use cases for path properties.  Note that this is not an exhaustive list, as with every new technology and protocol, novel use cases may emerge, and new path properties may become relevant.</p>
-<h1 id="rfc.section.3.1">
-<a href="#rfc.section.3.1">3.1.</a> <a href="#path-selection" id="path-selection">Path Selection</a>
-</h1>
-<p id="rfc.section.3.1.p.1">Entities can choose what traffic to send over which path or subset of paths.  A node might be able to select between a set of paths, either if there are several paths to the same destination (e.g., in case of a mobile device with two wireless interfaces, both providing a path), or if there are several destinations, and thus several paths, providing the same service (e.g., Application-Layer Traffic Optimization (ALTO) <a href="#RFC5693" class="xref">[RFC5693]</a>, an application layer peer-to-peer protocol allowing hosts a better-than-random peer selection).  Care needs to be taken when selecting paths based on path properties, as path properties that were previously measured may not be helpful in predicting current or future path properties and such path selection may lead to unintended feedback loops.</p>
-<p id="rfc.section.3.1.p.2">Entities may select their paths to fulfill a specific goal, e.g., related to security or performance.  As an example of security-related path selection, an entity may allow or disallow sending traffic over paths involving specific networks or nodes to enforce traffic policies. In an enterprise network where all traffic has to go through a specific firewall, a path-aware host can implement this policy using path selection, in which case the host needs to be aware of paths involving that firewall.  As an example of performance-related path selection, an entity may prefer paths with performance properties that best match its traffic requirements.  For example, for sending a small delay sensitive query, a host may select a path with a short One-Way Delay, while for retrieving a large file, it may select a path with high Link Capacities on all links.  Note, there may be trade-offs between path properties (e.g., One-Way Delay and Link Capacity), and entities may influence these trade-offs with their choices.  As a baseline, a path selection algorithm should aim to not perform worse than the default case most of the time.</p>
-<p id="rfc.section.3.1.p.3">Path selection can be done both by hosts and by entities within the network: A network (e.g., an AS) can adjust its path selection for internal or external routing based on path properties.  In BGP, the Multi Exit Discriminator (MED) attribute is used in the decision-making process to select which path to choose among those having the same AS PATH length and origin <a href="#RFC4271" class="xref">[RFC4271]</a>; in a path aware network, instead of using this single MED value, other properties such as Link Capacity or Link Usage could additionally be used to improve load balancing or performance <a href="#I-D.ietf-idr-performance-routing" class="xref">[I-D.ietf-idr-performance-routing]</a>.</p>
-<h1 id="rfc.section.3.2">
-<a href="#rfc.section.3.2">3.2.</a> <a href="#protocol-selection" id="protocol-selection">Protocol Selection</a>
-</h1>
-<p id="rfc.section.3.2.p.1">When sending traffic over a specific path, an entity may select an appropriate protocol or configure protocol parameters depending on path properties.  A host may cache state on whether a path allows the use of QUIC <a href="#I-D.ietf-quic-transport" class="xref">[I-D.ietf-quic-transport]</a> and if so, first attempt to connect using QUIC before falling back to another protocol when connecting over this path again.  A video streaming application may choose an (initial) video quality based on the achievable data rate or the monetary cost of sending data (e.g., volume-base or flat-rate cost model).</p>
-<h1 id="rfc.section.3.3">
-<a href="#rfc.section.3.3">3.3.</a> <a href="#service-invocation" id="service-invocation">Service Invocation</a>
-</h1>
-<p id="rfc.section.3.3.p.1">Conversely to path or protocol selection, in addition to selecting a protocol to use over a specific adjacent path element, an entity may choose to invoke additional functions influencing the nodes to be involved in the path.  For example, a 0-RTT Transport Converter <a href="#I-D.ietf-tcpm-converters" class="xref">[I-D.ietf-tcpm-converters]</a> will be involved in a path only when invoked by a host; such invocation will lead to the use of MPTCP or TCPinc capabilities while such use is not supported via the default forwarding path.  Another example is a connection which is composed of multiple streams where each stream has specific service requirements. A host may decide to invoke a given service function (e.g., transcoding) only for some streams while others are not processed by that service function.</p>
-<h1 id="rfc.section.4">
-<a href="#rfc.section.4">4.</a> <a href="#examples-of-path-properties" id="examples-of-path-properties">Examples of Path Properties</a>
-</h1>
-<p id="rfc.section.4.p.1">This Section gives some examples of path properties which may be useful, e.g., for the use cases described in <a href="#use-cases" class="xref">Section 3</a>.</p>
-<p id="rfc.section.4.p.2">Path properties may be relatively dynamic, e.g., the one-way delay of a packet sent over a specific path, or non-dynamic, e.g., the MTU of an Ethernet link which only changes infrequently.  Usefulness over time differs depending on how dynamic a property is: The merit of a momentary measurement of a dynamic path property diminishes greatly as time goes on, e.g. the merit of an RTT measurement from a few seconds ago is quite small, while a non-dynamic path property might stay relevant for a longer period of time, e.g. a NAT typically stays on a specific path during the lifetime of a connection involving packets sent over this path.</p>
-<p id="rfc.section.4.p.3">From the point of view of a host, path properties may relate to path elements close to the host, i.e., within the first few hops, or they may include path elements far from the host, e.g., list of ASes traversed.  The visibility of path properties to a specific entity may depend on factors such as the physical or network distance or the existence of trust or contractual relationships between the entity and the path element(s).</p>
-<p id="rfc.section.4.p.4">Furthermore, entities may or may not be able to influence the path elements on their path and their path properties.  For example, a user might select between multiple potential adjacent links by selecting between multiple available Wi-Fi Access Points. Or when connected to an Access Point, the user may move closer to enable their device to use a different access technology, potentially increasing the data rate available to the device.  Another example is a user changing their data plan to reduce the Monetary Cost to transmit or receive a given amount of data across a network.</p>
-<p></p>
-
-<dl>
-<dt>Access Technology:</dt>
-<dd style="margin-left: 8">The physical or link layer technology used for transmitting or receiving a flow on one or multiple path elements. If known, the Access Technology may be given as an abstract link type, e.g., as Wi-Fi, Wired Ethernet, or Cellular. It may also be given as a specific technology used on a link, e.g., 2G, 3G, 4G, or 5G cellular, or 802.11a, b, g, n, or ac Wi-Fi. Other path elements relevant to the access technology may include nodes related to processing packets on the physical or link layer, such as elements of a cellular backbone network. Note that there is no common registry of possible values for this property.</dd>
-<dt>Monetary Cost:</dt>
-<dd style="margin-left: 8">The price to be paid to transmit or receive a specific flow across a network to which one or multiple path elements belong.</dd>
-<dt>Service function:</dt>
-<dd style="margin-left: 8">A service function that a path element applies to a flow, see <a href="#RFC7665" class="xref">[RFC7665]</a>. Examples of abstract service functions include firewalls, Network Address Translation (NAT), and TCP optimizers. Some stateful service functions, such as NAT, need to observe the same flow in both directions, e.g., by being an element of both the path and the reverse path.</dd>
-<dt>Transparency:</dt>
-<dd style="margin-left: 8">A node is transparent with respect to a protocol header, payload, or both for a specific action if the node performs this action independently of the given (meta-)information.  Actions can for example be blocking packets or reading and modifying (other protocol) headers or payloads.  An IP router could be transparent for transport protocol headers such as TCP and UDP, in contrast to a NAT that actively modifies TCP and UDP header information.</dd>
-<dt>Administrative Domain:</dt>
-<dd style="margin-left: 8">The administrative domain, e.g., the IGP area, AS, or Service provider network to which a path element belongs.</dd>
-<dt>Disjointness:</dt>
-<dd style="margin-left: 8">For a set of two paths or subpaths, the number of shared path elements can be a measure of intersection (e.g., Jaccard coefficient, which is the number of shared elements divided by the total number of elements). Conversely, the number of non-shared path elements can be a measure of disjointness (e.g., 1 - Jaccard coefficient). A multipath protocol might use disjointness as a metric to reduce the number of single points of failure.</dd>
-<dt>Symmetric Path:</dt>
-<dd style="margin-left: 8">Two paths are symmetric if the path and its reverse path consist of the same path elements on the same level of abstraction, but in reverse order.  For example, a path which consists of layer 3 switches and links between them and a reverse path with the same path elements but in reverse order are considered &#8220;routing&#8221; symmetric, as the same path elements on the same level of abstraction (IP forwarding) are traversed in the opposite direction.</dd>
-<dt>Path MTU:</dt>
-<dd style="margin-left: 8">The maximum size, in octets, of an IP packet that can be transmitted without fragmentation.</dd>
-<dt>Transport Protocols available:</dt>
-<dd style="margin-left: 8">Whether a specific transport protocol can be used to establish a connection over a path or subpath, e.g., whether the path is QUIC-capable or MPTCP-capable, based on cached knowledge.</dd>
-<dt>Protocol Features available:</dt>
-<dd style="margin-left: 8">Whether a specific protocol feature is available over a path or subpath, e.g., Explicit Congestion Notification (ECN), or TCP Fast Open.</dd>
-</dl>
-<p id="rfc.section.4.p.6">Some path properties express the performance of the transmission of a packet or flow over a link or subpath.  Such transmission performance properties can be measured or approximated, e.g., by hosts or by path elements on the path, or they may be available as cost metrics, see <a href="#I-D.ietf-alto-performance-metrics" class="xref">[I-D.ietf-alto-performance-metrics]</a>.  Transmission performance properties may be made available in an aggregated form, such as averages or minimums.  Properties related to a path element which constitutes a single layer 2 domain are abstracted from the used physical and link layer technology, similar to <a href="#RFC8175" class="xref">[RFC8175]</a>.</p>
-<p></p>
-
-<dl>
-<dt>Link Capacity:</dt>
-<dd style="margin-left: 8">The link capacity is the maximum data rate at which data that was sent over a link can correctly be received at the node adjacent to the link.  This property is analogous to the link capacity defined in <a href="#RFC5136" class="xref">[RFC5136]</a> but not restricted to IP-layer traffic.</dd>
-<dt>Link Usage:</dt>
-<dd style="margin-left: 8">The link usage is the actual data rate at which data that was sent over a link is correctly received at the node adjacent to the link.  This property is analogous to the link usage defined in <a href="#RFC5136" class="xref">[RFC5136]</a> but not restricted to IP-layer traffic.</dd>
-<dt>One-Way Delay:</dt>
-<dd style="margin-left: 8">The one-way delay is the delay between a node sending a packet and another node on the same path receiving the packet.  This property is analogous to the one-way delay defined in <a href="#RFC7679" class="xref">[RFC7679]</a> but not restricted to IP-layer traffic.</dd>
-<dt>One-Way Delay Variation:</dt>
-<dd style="margin-left: 8">The variation of the one-way delays within a flow.  This property is similar to the one-way delay variation defined in <a href="#RFC3393" class="xref">[RFC3393]</a> but not restricted to IP-layer traffic and defined for packets on the same flow instead of packets sent between a source and destination IP address.</dd>
-<dt>One-Way Packet Loss:</dt>
-<dd style="margin-left: 8">Packets sent by a node but not received by another node on the same path after a certain time interval are considered lost.  This property is analogous to the one-way loss defined in <a href="#RFC7680" class="xref">[RFC7680]</a> but not restricted to IP-layer traffic.  Metrics such as loss patterns <a href="#RFC3357" class="xref">[RFC3357]</a> and loss episodes <a href="#RFC6534" class="xref">[RFC6534]</a> can be expressed as aggregated properties.</dd>
-</dl>
-<h1 id="rfc.section.5">
-<a href="#rfc.section.5">5.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a>
-</h1>
-<p id="rfc.section.5.p.1">If nodes are basing policy or path selection decisions on path properties, they need to rely on the accuracy of path properties that other devices communicate to them.  In order to be able to trust such path properties, nodes may need to establish a trust relationship or be able to verify the authenticity, integrity, and correctness of path properties received from another node.</p>
-<p id="rfc.section.5.p.2">Security related properties such as confidentiality and integrity protection of payloads are difficult to characterize since they are only meaningful with respect to a threat model which depends on the use case, application, environment, and other factors.  Likewise, properties for trust relations between nodes cannot be meaningfully defined without a concrete threat model, and defining a threat model is out of scope for this draft.  Properties related to confidentiality, integrity, and trust are orthogonal to the path terminology and path properties defined in this document.  Such properties are tied to the communicating entities and protocols used (e.g., client and server using HTTPS, or client and remote network node using VPN) while the path is typically oblivious to them.  Intuitively, the path describes what function the network applies to packets, while confidentiality, integrity, and trust describe what function the communicating parties apply to packets.</p>
-<h1 id="rfc.section.6">
-<a href="#rfc.section.6">6.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
-</h1>
-<p id="rfc.section.6.p.1">This document has no IANA actions.</p>
-<h1 id="rfc.references">
-<a href="#rfc.references">7.</a> Informative References</h1>
-<table><tbody>
-<tr>
-<td class="reference"><b id="I-D.ietf-alto-path-vector">[I-D.ietf-alto-path-vector]</b></td>
-<td class="top">
-<a>Gao, K.</a>, <a>Lee, Y.</a>, <a>Randriamasy, S.</a>, <a>Yang, Y.</a> and <a>J. Zhang</a>, "<a href="https://tools.ietf.org/html/draft-ietf-alto-path-vector-11">ALTO Extension: Path Vector</a>", Internet-Draft draft-ietf-alto-path-vector-11, July 2020.</td>
-</tr>
-<tr>
-<td class="reference"><b id="I-D.ietf-alto-performance-metrics">[I-D.ietf-alto-performance-metrics]</b></td>
-<td class="top">
-<a>WU, Q.</a>, <a>Yang, Y.</a>, <a>Lee, Y.</a>, <a>Dhody, D.</a>, <a>Randriamasy, S.</a> and <a>L. Contreras</a>, "<a href="https://tools.ietf.org/html/draft-ietf-alto-performance-metrics-12">ALTO Performance Cost Metrics</a>", Internet-Draft draft-ietf-alto-performance-metrics-12, July 2020.</td>
-</tr>
-<tr>
-<td class="reference"><b id="I-D.ietf-idr-performance-routing">[I-D.ietf-idr-performance-routing]</b></td>
-<td class="top">
-<a>Xu, X.</a>, <a>Hegde, S.</a>, <a>Talaulikar, K.</a>, <a>Boucadair, M.</a> and <a>C. Jacquenet</a>, "<a href="https://tools.ietf.org/html/draft-ietf-idr-performance-routing-02">Performance-based BGP Routing Mechanism</a>", Internet-Draft draft-ietf-idr-performance-routing-02, October 2019.</td>
-</tr>
-<tr>
-<td class="reference"><b id="I-D.ietf-quic-transport">[I-D.ietf-quic-transport]</b></td>
-<td class="top">
-<a>Iyengar, J.</a> and <a>M. Thomson</a>, "<a href="https://tools.ietf.org/html/draft-ietf-quic-transport-29">QUIC: A UDP-Based Multiplexed and Secure Transport</a>", Internet-Draft draft-ietf-quic-transport-29, June 2020.</td>
-</tr>
-<tr>
-<td class="reference"><b id="I-D.ietf-tcpm-converters">[I-D.ietf-tcpm-converters]</b></td>
-<td class="top">
-<a>Bonaventure, O.</a>, <a>Boucadair, M.</a>, <a>Gundavelli, S.</a>, <a>Seo, S.</a> and <a>B. Hesmans</a>, "<a href="https://tools.ietf.org/html/draft-ietf-tcpm-converters-19">0-RTT TCP Convert Protocol</a>", Internet-Draft draft-ietf-tcpm-converters-19, March 2020.</td>
-</tr>
-<tr>
-<td class="reference"><b id="I-D.irtf-panrg-questions">[I-D.irtf-panrg-questions]</b></td>
-<td class="top">
-<a>Trammell, B.</a>, "<a href="https://tools.ietf.org/html/draft-irtf-panrg-questions-07">Current Open Questions in Path Aware Networking</a>", Internet-Draft draft-irtf-panrg-questions-07, August 2020.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC1122">[RFC1122]</b></td>
-<td class="top">
-<a>Braden, R.</a>, "<a href="https://tools.ietf.org/html/rfc1122">Requirements for Internet Hosts - Communication Layers</a>", STD 3, RFC 1122, DOI 10.17487/RFC1122, October 1989.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC3357">[RFC3357]</b></td>
-<td class="top">
-<a>Koodli, R.</a> and <a>R. Ravikanth</a>, "<a href="https://tools.ietf.org/html/rfc3357">One-way Loss Pattern Sample Metrics</a>", RFC 3357, DOI 10.17487/RFC3357, August 2002.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC3393">[RFC3393]</b></td>
-<td class="top">
-<a>Demichelis, C.</a> and <a>P. Chimento</a>, "<a href="https://tools.ietf.org/html/rfc3393">IP Packet Delay Variation Metric for IP Performance Metrics (IPPM)</a>", RFC 3393, DOI 10.17487/RFC3393, November 2002.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC4271">[RFC4271]</b></td>
-<td class="top">
-<a>Rekhter, Y.</a>, <a>Li, T.</a> and <a>S. Hares</a>, "<a href="https://tools.ietf.org/html/rfc4271">A Border Gateway Protocol 4 (BGP-4)</a>", RFC 4271, DOI 10.17487/RFC4271, January 2006.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC5136">[RFC5136]</b></td>
-<td class="top">
-<a>Chimento, P.</a> and <a>J. Ishac</a>, "<a href="https://tools.ietf.org/html/rfc5136">Defining Network Capacity</a>", RFC 5136, DOI 10.17487/RFC5136, February 2008.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC5693">[RFC5693]</b></td>
-<td class="top">
-<a>Seedorf, J.</a> and <a>E. Burger</a>, "<a href="https://tools.ietf.org/html/rfc5693">Application-Layer Traffic Optimization (ALTO) Problem Statement</a>", RFC 5693, DOI 10.17487/RFC5693, October 2009.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC6534">[RFC6534]</b></td>
-<td class="top">
-<a>Duffield, N.</a>, <a>Morton, A.</a> and <a>J. Sommers</a>, "<a href="https://tools.ietf.org/html/rfc6534">Loss Episode Metrics for IP Performance Metrics (IPPM)</a>", RFC 6534, DOI 10.17487/RFC6534, May 2012.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC7665">[RFC7665]</b></td>
-<td class="top">
-<a>Halpern, J.</a> and <a>C. Pignataro</a>, "<a href="https://tools.ietf.org/html/rfc7665">Service Function Chaining (SFC) Architecture</a>", RFC 7665, DOI 10.17487/RFC7665, October 2015.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC7679">[RFC7679]</b></td>
-<td class="top">
-<a>Almes, G.</a>, <a>Kalidindi, S.</a>, <a>Zekauskas, M.</a> and <a>A. Morton</a>, "<a href="https://tools.ietf.org/html/rfc7679">A One-Way Delay Metric for IP Performance Metrics (IPPM)</a>", STD 81, RFC 7679, DOI 10.17487/RFC7679, January 2016.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC7680">[RFC7680]</b></td>
-<td class="top">
-<a>Almes, G.</a>, <a>Kalidindi, S.</a>, <a>Zekauskas, M.</a> and <a>A. Morton</a>, "<a href="https://tools.ietf.org/html/rfc7680">A One-Way Loss Metric for IP Performance Metrics (IPPM)</a>", STD 82, RFC 7680, DOI 10.17487/RFC7680, January 2016.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC8175">[RFC8175]</b></td>
-<td class="top">
-<a>Ratliff, S.</a>, <a>Jury, S.</a>, <a>Satterwhite, D.</a>, <a>Taylor, R.</a> and <a>B. Berry</a>, "<a href="https://tools.ietf.org/html/rfc8175">Dynamic Link Exchange Protocol (DLEP)</a>", RFC 8175, DOI 10.17487/RFC8175, June 2017.</td>
-</tr>
-</tbody></table>
-<h1 id="rfc.acknowledgments"><a href="#rfc.acknowledgments">Acknowledgments</a></h1>
-<p id="rfc.section.A.p.1">Thanks to the Path-Aware Networking Research Group for the discussion and feedback. Specifically, thanks to Mohamed Boudacair for the detailed review and various text suggestions, thanks to Brian Trammell for suggesting the flow definition, and thanks to Adrian Perrig and Matthias Rost for the detailed feedback. Thanks to Paul Hoffman for the editorial changes.</p>
-<h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
-<div class="avoidbreak">
-  <address class="vcard">
-	<span class="vcardline">
-	  <span class="fn">Theresa Enghardt</span> 
-	  <span class="n hidden">
-		<span class="family-name">Enghardt</span>
-	  </span>
-	</span>
-	<span class="org vcardline">Netflix</span>
-	<span class="adr">
-	  
-	  <span class="vcardline">
-		<span class="locality"></span> 
-		<span class="region"></span>
-		<span class="code"></span>
-	  </span>
-	  <span class="country-name vcardline"></span>
-	</span>
-	<span class="vcardline">EMail: <a href="mailto:ietf@tenghardt.net">ietf@tenghardt.net</a></span>
-
-  </address>
-</div><div class="avoidbreak">
-  <address class="vcard">
-	<span class="vcardline">
-	  <span class="fn">Cyrill Kr&#228;henb&#252;hl</span> 
-	  <span class="n hidden">
-		<span class="family-name">Kr&#228;henb&#252;hl</span>
-	  </span>
-	</span>
-	<span class="org vcardline">ETH Z&#252;rich</span>
-	<span class="adr">
-	  
-	  <span class="vcardline">
-		<span class="locality"></span> 
-		<span class="region"></span>
-		<span class="code"></span>
-	  </span>
-	  <span class="country-name vcardline"></span>
-	</span>
-	<span class="vcardline">EMail: <a href="mailto:cyrill.kraehenbuehl@inf.ethz.ch">cyrill.kraehenbuehl@inf.ethz.ch</a></span>
-
-  </address>
+<td class="center">Path Properties</td>
+<td class="right">July 2021</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">Enghardt &amp; Krähenbühl</td>
+<td class="center">Expires 10 January 2022</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">PANRG</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">draft-irtf-panrg-path-properties-latest</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2021-07-09" class="published">9 July 2021</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Informational</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2022-01-10">10 January 2022</time></dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">T. Enghardt</div>
+<div class="org">Netflix</div>
 </div>
-
+<div class="author">
+      <div class="author-name">C. Krähenbühl</div>
+<div class="org">ETH Zürich</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">A Vocabulary of Path Properties</h1>
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<p id="section-abstract-1">Path properties express information about paths across a network and the services provided via such paths.
+In a path-aware network, path properties may be fully or partially available to entities such as hosts.
+This document defines and categorizes path properties.
+Furthermore, the document specifies several path properties which might be useful to hosts or other entities,
+e.g., for selecting between paths or for invoking some of the provided services.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+</section>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 10 January 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2021 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document. Code Components extracted from this
+            document must include Simplified BSD License text as described in
+            Section 4.e of the Trust Legal Provisions and are provided without
+            warranty as described in the Simplified BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="compact toc ulEmpty">
+<li class="compact toc ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
+</li>
+          <li class="compact toc ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-terminology" class="xref">Terminology</a></p>
+<ul class="compact toc ulEmpty">
+<li class="compact toc ulEmpty" id="section-toc.1-1.2.2.1">
+                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-terminology-usage-for-speci" class="xref">Terminology usage for specific technologies</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-use-cases-for-path-properti" class="xref">Use Cases for Path Properties</a></p>
+<ul class="compact toc ulEmpty">
+<li class="compact toc ulEmpty" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-path-selection" class="xref">Path Selection</a></p>
+</li>
+              <li class="compact toc ulEmpty" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-protocol-selection" class="xref">Protocol Selection</a></p>
+</li>
+              <li class="compact toc ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-service-invocation" class="xref">Service Invocation</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-examples-of-path-properties" class="xref">Examples of Path Properties</a></p>
+</li>
+          <li class="compact toc ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
+</li>
+          <li class="compact toc ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-appendix.a" class="xref"></a><a href="#name-acknowledgments" class="xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<p id="section-1-1">The current Internet architecture does not explicitly support endpoint discovery of forwarding paths through the network as well as the discovery of properties and services associated with these paths.
+Path-aware networking, as defined in Section 1.1 of <span>[<a href="#I-D.irtf-panrg-questions" class="xref">I-D.irtf-panrg-questions</a>]</span>, describes
+"endpoint discovery of the properties of paths they use for communication across an internetwork, and endpoint reaction to these properties that affects routing and/or data transfer".
+This document provides a generic definition of path properties, addressing the first of the questions in path-aware networking <span>[<a href="#I-D.irtf-panrg-questions" class="xref">I-D.irtf-panrg-questions</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">As terms related to paths have been used with different meanings in different areas of networking, first, this document provides a common terminology to define paths, path elements, and flows. Based on these terms, the document defines path properties.
+Then, this document provides some examples of use cases for path properties.
+Finally, the document lists several path properties that may be useful for the mentioned use cases.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">Note that this document does not assume that any of the listed path properties are actually available to any entity. The question of how entities can discover and distribute path properties in a trustworthy way is out of scope for this document.<a href="#section-1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="terminology">
+<section id="section-2">
+      <h2 id="name-terminology">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-terminology" class="section-name selfRef">Terminology</a>
+      </h2>
+<span class="break"></span><dl class="dlParallel" id="section-2-1">
+        <dt id="section-2-1.1">Entity:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.2">
+  A physical or virtual device or function, or a collection of devices or functions, which can, for example, process packets, measure path properties, or access information about paths. With respect to a given communication, an entity may be on the data plane or control plane, and it may be on-path or off-path.<a href="#section-2-1.2" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.3">Node:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.4">
+  An entity which processes packets, e.g., sends, receives, forwards, or modifies them. A node may be physical or virtual, e.g., a physical device, a service function provided as a virtual element, or even a single queue within a switch. A node may also be an entity which consists of a collection of devices or functions, e.g., an entire Autonomous System (AS).<a href="#section-2-1.4" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.5">Host:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.6">
+  A node that generally executes application programs on behalf of user(s), employing network and/or Internet communication services in support of this function, as defined in <span>[<a href="#RFC1122" class="xref">RFC1122</a>]</span>.
+Note that hosts include both client nodes (e.g., running a web browser) and server nodes (e.g., running a web server).<a href="#section-2-1.6" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.7">Link:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.8">
+  A medium or communication facility that connects two or more nodes with each other. A link enables a node to send packets to other nodes.
+Links can be physical, e.g., a Wi-Fi network which connects an Access Point to stations, or virtual, e.g., a virtual switch which connects two virtual machines hosted on the same physical machine. A link is unidirectional. As such, bidirectional communication can be modeled as two links between the same nodes in opposite directions.<a href="#section-2-1.8" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.9">Path element:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.10">
+  Either a node or a link. For example, a path element can be an Abstract Network Element (ANE) as defined in <span>[<a href="#I-D.ietf-alto-path-vector" class="xref">I-D.ietf-alto-path-vector</a>]</span>.<a href="#section-2-1.10" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.11">Path:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.12">
+  A sequence of adjacent path elements over which a packet can be transmitted, starting and ending with a node. A path is unidirectional. Paths are time-dependent, i.e., the sequence of path elements over which packets are sent from one node to another may change. A path is defined between two nodes. For multicast or broadcast, a packet may be sent by one node and received by multiple nodes. In this case, the packet is sent over multiple paths at once, one path for each combination of sending and receiving node; these paths do not have to be disjoint. Note that an entity may have only partial visibility of the path elements that comprise a path and visibility may change over time. Different entities may have different visibility of a path and/or treat path elements at different levels of abstraction. For example, a path may be given as a sequence of physical nodes and the links connecting these nodes, or it may be given as a sequence of logical nodes such as a sequence of ASes or an Explicit Route Object (ERO). Similarly, the representation of a path and its properties, as it is known to a specific entity, may be more complex and include details about the physical layer technology, or it may be more abstract and only consist of a specific source and destination which is known to be reachable from that source.<a href="#section-2-1.12" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.13">Reverse Path:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.14">
+  The path that is used by a remote node in the context of bidirectional communication.<a href="#section-2-1.14" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.15">Subpath:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.16">
+  Given a path, a subpath is a sequence of adjacent path elements of this path.<a href="#section-2-1.16" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.17">Flow:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.18">
+  One or multiple packets to which the traits of a path or set of subpaths may be applied in a functional sense. For example, a flow can consist of all packets sent within a TCP session with the same five-tuple between two hosts, or it can consist of all packets sent on the same physical link.<a href="#section-2-1.18" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.19">Property:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.20">
+  A trait of one or a sequence of path elements, or a trait of a flow with respect to one or a sequence of path elements. An example of a link property is the maximum data rate that can be sent over the link. An example of a node property is the administrative domain that the node belongs to. An example of a property of a flow with respect to a subpath is the aggregated one-way delay of the flow being sent from one node to another node over this subpath.
+A property is thus described by a tuple containing the path element(s), the flow or an empty set if no packets are relevant for the property, the name of the property (e.g., maximum data rate), and the value of the property (e.g., 1Gbps).<a href="#section-2-1.20" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.21">Aggregated property:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.22">
+  A collection of multiple values of a property into a single value, according to a function. A property can be aggregated over multiple path elements (i.e., a subpath), e.g., the MTU of a path as the minimum MTU of all links on the path, over multiple packets (i.e., a flow), e.g., the median one-way latency of all packets between two nodes, or over both, e.g., the mean of the queueing delays of a flow on all nodes along a path.
+The aggregation function can be numerical, e.g., median, sum, minimum, it can be logical, e.g., "true if all are true", "true if at least 50\% of values are true", or an arbitrary function which maps multiple input values to an output value.<a href="#section-2-1.22" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.23">Observed property:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.24">
+  A property that is observed for a specific path element, subpath, or path, e.g., using measurements. For example, the one-way delay of a specific packet transmitted from one node to another node can be measured.<a href="#section-2-1.24" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-2-1.25">Assessed property:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.26">
+  An approximate calculation or assessment of the value of a property. An assessed property includes the reliability of the calculation or assessment. The notion of reliability depends on the property.
+For example, a path property based on an approximate calculation may describe the expected median one-way latency of packets sent on a path within the next second, including the confidence level and interval. A non-numerical assessment may instead include the likelihood that the property holds.<a href="#section-2-1.26" class="pilcrow">¶</a>
+</dd>
+      <dd class="break"></dd>
+</dl>
+<div id="terminology-usage-for-specific-technologies">
+<section id="section-2.1">
+        <h3 id="name-terminology-usage-for-speci">
+<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-terminology-usage-for-speci" class="section-name selfRef">Terminology usage for specific technologies</a>
+        </h3>
+<p id="section-2.1-1">The terminology defined in this document is intended to be general and applicable to existing and future path-aware technologies.
+Using this terminology, a path-aware technology can define and consider specific path elements and path properties on a specific level of abstraction.
+For instance, a technology may define path elements as IP routers, e.g., in source routing (<span>[<a href="#RFC1940" class="xref">RFC1940</a>]</span>). Alternatively, it may consider path elements on a different layer of the Internet Architecture (<span>[<a href="#RFC1122" class="xref">RFC1122</a>]</span>) or as a collection of entities not tied to a specific layer, such as an AS or an ERO.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="use-cases">
+<section id="section-3">
+      <h2 id="name-use-cases-for-path-properti">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-use-cases-for-path-properti" class="section-name selfRef">Use Cases for Path Properties</a>
+      </h2>
+<p id="section-3-1">When a path-aware network exposes path properties to hosts or other entities,
+these entities may use this information to achieve different goals.
+This section lists several use cases for path properties.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">Note that this is not an exhaustive list, as with every new technology and protocol, novel use cases may emerge, and new path properties may become relevant.
+Moreover, for any particular technology, entities may have visibility of and control over different path elements and path properties, and consider them on different levels of abstraction.
+Therefore, a new technology may implement an existing use case related to different path elements or on a different level of abstraction.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<div id="path-selection">
+<section id="section-3.1">
+        <h3 id="name-path-selection">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-path-selection" class="section-name selfRef">Path Selection</a>
+        </h3>
+<p id="section-3.1-1">Nodes may be able to send flows via one (or a subset) out of multiple possible paths, and an entity may be able to influence the decision which path(s) to use.
+Path Selection may be feasible if there are several paths to the same destination (e.g., in case of a mobile device with two wireless interfaces, both providing a path), or if there are several destinations, and thus several paths, providing the same service (e.g., Application-Layer Traffic Optimization (ALTO) <span>[<a href="#RFC5693" class="xref">RFC5693</a>]</span>, an application layer peer-to-peer protocol allowing hosts a better-than-random peer selection).
+Care needs to be taken when selecting paths based on path properties, as path properties that were previously measured may not be helpful in predicting current or future path properties and such path selection may lead to unintended feedback loops.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">Entities may select their paths to fulfill a specific goal, e.g., related to security or performance.
+As an example of security-related path selection, an entity may allow or disallow sending flows over paths involving specific networks or nodes to enforce traffic policies. In an enterprise network where all traffic has to go through a specific firewall, a path-aware entity can implement this policy using path selection.
+As an example of performance-related path selection,
+an entity may prefer paths with performance properties that best match application requirements.
+For example, for sending a small delay sensitive query, the entity may select a path with a short One-Way Delay,
+while for retrieving a large file, it may select a path with high Link Capacities on all links.
+Note, there may be trade-offs between path properties (e.g., One-Way Delay and Link Capacity), and entities may influence these trade-offs with their choices.
+As a baseline, a path selection algorithm should aim to not perform worse than the default case most of the time.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1-3">Path selection can be done either by the communicating node(s) or by other entities within the network:
+A network (e.g., an AS) can adjust its path selection for internal or external routing based on path properties.
+In BGP, the Multi Exit Discriminator (MED) attribute is used in the decision-making process to select which path to choose among those having the same AS PATH length and origin <span>[<a href="#RFC4271" class="xref">RFC4271</a>]</span>; in a path-aware network, instead of using this single MED value, other properties such as Link Capacity or Link Usage could additionally be used to improve load balancing or performance <span>[<a href="#I-D.ietf-idr-performance-routing" class="xref">I-D.ietf-idr-performance-routing</a>]</span>.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="protocol-selection">
+<section id="section-3.2">
+        <h3 id="name-protocol-selection">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-protocol-selection" class="section-name selfRef">Protocol Selection</a>
+        </h3>
+<p id="section-3.2-1">Before sending data over a specific path, an entity may select an appropriate protocol or configure protocol parameters depending on path properties.
+A host may cache state on whether a path allows the use of QUIC <span>[<a href="#I-D.ietf-quic-transport" class="xref">I-D.ietf-quic-transport</a>]</span> and if so, first attempt to connect using QUIC before falling back to another protocol when connecting over this path again.
+A video streaming application may choose an (initial) video quality based on the achievable data rate or the monetary cost of sending data (e.g., volume-base or flat-rate cost model).<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="service-invocation">
+<section id="section-3.3">
+        <h3 id="name-service-invocation">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-service-invocation" class="section-name selfRef">Service Invocation</a>
+        </h3>
+<p id="section-3.3-1">In addition to path or protocol selection, an entity may choose to invoke additional functions in the context of Service Function Chaining <span>[<a href="#RFC7665" class="xref">RFC7665</a>]</span>, which may influence what nodes are on the path.
+For example, a 0-RTT Transport Converter <span>[<a href="#I-D.ietf-tcpm-converters" class="xref">I-D.ietf-tcpm-converters</a>]</span> will be involved in a path only when invoked by a host; such invocation will lead to the use of MPTCP or TCPinc capabilities while such use is not supported via the default forwarding path.
+Another example is a connection which is composed of multiple streams where each stream has specific service requirements. A host may decide to invoke a given service function (e.g., transcoding) only for some streams while others are not processed by that service function.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="examples-of-path-properties">
+<section id="section-4">
+      <h2 id="name-examples-of-path-properties">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-examples-of-path-properties" class="section-name selfRef">Examples of Path Properties</a>
+      </h2>
+<p id="section-4-1">This Section gives some examples of path properties which may be useful, e.g., for the use cases described in <a href="#use-cases" class="xref">Section 3</a>.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">Within the context of any particular technology, available path properties may differ
+as entities have insight into and are able to influence different path elements and path properties.
+For example, a host may have some visibility into path elements that are on a low level of abstraction and close, e.g., individual nodes within the first few hops, or it may have visibility into path elements that are far away and/or on a higher level of abstraction, e.g., the list of ASes traversed.
+This visibility may depend on factors such as the physical or network distance or the existence of trust or contractual relationships between the host and the path element(s).<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-3">Path properties may be relatively dynamic, e.g., the one-way delay of a packet sent over a specific path, or non-dynamic, e.g., the MTU of an Ethernet link which only changes infrequently.
+Usefulness over time differs depending on how dynamic a property is:
+The merit of a momentary measurement of a dynamic path property diminishes greatly as time goes on, e.g. the merit of an RTT measurement from a few seconds ago is quite small, while a non-dynamic path property might stay relevant for a longer period of time, e.g. a NAT typically stays on a specific path during the lifetime of a connection involving packets sent over this path.<a href="#section-4-3" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-4-4">
+        <dt id="section-4-4.1">Access Technology:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-4.2">
+  The physical or link layer technology used for transmitting or receiving a flow on one or multiple path elements. If known, the Access Technology may be given as an abstract link type, e.g., as Wi-Fi, Wired Ethernet, or Cellular. It may also be given as a specific technology used on a link, e.g., 2G, 3G, 4G, or 5G cellular, or 802.11a, b, g, n, or ac Wi-Fi. Other path elements relevant to the access technology may include nodes related to processing packets on the physical or link layer, such as elements of a cellular backbone network. Note that there is no common registry of possible values for this property.<a href="#section-4-4.2" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-4.3">Monetary Cost:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-4.4">
+  The price to be paid to transmit or receive a specific flow across a network to which one or multiple path elements belong.<a href="#section-4-4.4" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-4.5">Service function:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-4.6">
+  A service function that a path element applies to a flow, see <span>[<a href="#RFC7665" class="xref">RFC7665</a>]</span>. Examples of abstract service functions include firewalls, Network Address Translation (NAT), and TCP optimizers. Some stateful service functions, such as NAT, need to observe the same flow in both directions, e.g., by being an element of both the path and the reverse path.<a href="#section-4-4.6" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-4.7">Transparency:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-4.8">
+  When a node performs an action on a flow, the node is transparent to the flow with respect to some (meta-)information if the node performs this action independently of the given (meta-)information.
+(Meta-)information can for example be the existence of a protocol (header) in a packet or the content of a protocol header, payload, or both.
+Actions can for example be blocking packets or reading and modifying (other protocol) headers or payloads.
+An IP router could be transparent to transport protocol headers such as TCP/UDP but not transparent to IP headers since its forwarding behavior depends on the IP headers.
+A firewall that only allows outgoing TCP connections by blocking all incoming TCP SYN packets regardless of their IP address is transparent to IP but not to TCP headers.
+Finally, a NAT that actively modifies IP and TCP/UDP headers based on their content is not transparent to either IP or TCP/UDP headers.
+Note that according to this definition, a node that modifies packets in accordance with the hosts, such as a transparent HTTP proxy, as defined in <span>[<a href="#RFC2616" class="xref">RFC2616</a>]</span>, and a node listening and reacting to implicit or explicit signals, see <span>[<a href="#RFC8558" class="xref">RFC8558</a>]</span>, are not considered transparent.<a href="#section-4-4.8" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-4.9">Administrative Domain:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-4.10">
+  The administrative domain, e.g., the IGP area, AS, or Service provider network to which a path element belongs.<a href="#section-4-4.10" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-4.11">Disjointness:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-4.12">
+  For a set of two paths or subpaths, the number of shared path elements can be a measure of intersection (e.g., Jaccard coefficient, which is the number of shared elements divided by the total number of elements). Conversely, the number of non-shared path elements can be a measure of disjointness (e.g., 1 - Jaccard coefficient). A multipath protocol might use disjointness as a metric to reduce the number of single points of failure.<a href="#section-4-4.12" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-4.13">Symmetric Path:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-4.14">
+  Two paths are symmetric if the path and its reverse path consist of the same path elements on the same level of abstraction, but in reverse order.
+For example, a path which consists of layer 3 switches and links between them and a reverse path with the same path elements but in reverse order are considered "routing" symmetric, as the same path elements on the same level of abstraction (IP forwarding) are traversed in the opposite direction.<a href="#section-4-4.14" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-4.15">Path MTU:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-4.16">
+  The maximum size, in octets, of an IP packet that can be transmitted without fragmentation.<a href="#section-4-4.16" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-4.17">Transport Protocols available:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-4.18">
+  Whether a specific transport protocol can be used to establish a connection over a path or subpath, e.g., whether the path is QUIC-capable or MPTCP-capable, based on cached knowledge.<a href="#section-4-4.18" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-4.19">Protocol Features available:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-4.20">
+  Whether a specific protocol feature is available over a path or subpath, e.g., Explicit Congestion Notification (ECN), or TCP Fast Open.<a href="#section-4-4.20" class="pilcrow">¶</a>
+</dd>
+      <dd class="break"></dd>
+</dl>
+<p id="section-4-5">Some path properties express the performance of the transmission of a packet or flow over a link or subpath.
+Such transmission performance properties can be measured or approximated, e.g., by hosts or by path elements on the path, or they may be available as cost metrics, see <span>[<a href="#I-D.ietf-alto-performance-metrics" class="xref">I-D.ietf-alto-performance-metrics</a>]</span>.
+Transmission performance properties may be made available in an aggregated form, such as averages or minimums.
+Properties related to a path element which constitutes a single layer 2 domain are abstracted from the used physical and link layer technology, similar to <span>[<a href="#RFC8175" class="xref">RFC8175</a>]</span>.<a href="#section-4-5" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-4-6">
+        <dt id="section-4-6.1">Link Capacity:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-6.2">
+  The link capacity is the maximum data rate at which data that was sent over a link can correctly be received at the node adjacent to the link.
+This property is analogous to the link capacity defined in <span>[<a href="#RFC5136" class="xref">RFC5136</a>]</span> but not restricted to IP-layer traffic.<a href="#section-4-6.2" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-6.3">Link Usage:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-6.4">
+  The link usage is the actual data rate at which data that was sent over a link is correctly received at the node adjacent to the link.
+This property is analogous to the link usage defined in <span>[<a href="#RFC5136" class="xref">RFC5136</a>]</span> but not restricted to IP-layer traffic.<a href="#section-4-6.4" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-6.5">One-Way Delay:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-6.6">
+  The one-way delay is the delay between a node sending a packet and another node on the same path receiving the packet.
+This property is analogous to the one-way delay defined in <span>[<a href="#RFC7679" class="xref">RFC7679</a>]</span> but not restricted to IP-layer traffic.<a href="#section-4-6.6" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-6.7">One-Way Delay Variation:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-6.8">
+  The variation of the one-way delays within a flow.
+This property is similar to the one-way delay variation defined in <span>[<a href="#RFC3393" class="xref">RFC3393</a>]</span> but not restricted to IP-layer traffic and defined for packets on the same flow instead of packets sent between a source and destination IP address.<a href="#section-4-6.8" class="pilcrow">¶</a>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-6.9">One-Way Packet Loss:</dt>
+        <dd style="margin-left: 1.5em" id="section-4-6.10">
+  Packets sent by a node but not received by another node on the same path after a certain time interval are considered lost.
+This property is analogous to the one-way loss defined in <span>[<a href="#RFC7680" class="xref">RFC7680</a>]</span> but not restricted to IP-layer traffic.
+Metrics such as loss patterns <span>[<a href="#RFC3357" class="xref">RFC3357</a>]</span> and loss episodes <span>[<a href="#RFC6534" class="xref">RFC6534</a>]</span> can be expressed as aggregated properties.<a href="#section-4-6.10" class="pilcrow">¶</a>
+</dd>
+      <dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-5">
+      <h2 id="name-security-considerations">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-5-1">If nodes are basing policy or path selection decisions on path properties, they need to rely on the accuracy of path properties that other devices communicate to them.
+In order to be able to trust such path properties, nodes may need to establish a trust relationship or be able to verify the authenticity, integrity, and correctness of path properties received from another node.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">Security related properties such as confidentiality and integrity protection of payloads are difficult to characterize since they are only meaningful with respect to a threat model which depends on the use case, application, environment, and other factors.
+Likewise, properties for trust relations between nodes cannot be meaningfully defined without a concrete threat model, and defining a threat model is out of scope for this draft.
+Properties related to confidentiality, integrity, and trust are orthogonal to the path terminology and path properties defined in this document.
+Such properties are tied to the communicating nodes and the protocols they use (e.g., client and server using HTTPS, or client and remote network node using VPN) while the path is typically oblivious to them.
+Intuitively, the path describes what function the network applies to packets, while confidentiality, integrity, and trust describe what function the communicating parties apply to packets.<a href="#section-5-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="iana-considerations">
+<section id="section-6">
+      <h2 id="name-iana-considerations">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<p id="section-6-1">This document has no IANA actions.<a href="#section-6-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<section id="section-7">
+      <h2 id="name-informative-references">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+      </h2>
+<dl class="references">
+<dt id="I-D.ietf-alto-path-vector">[I-D.ietf-alto-path-vector]</dt>
+      <dd>
+<span class="refAuthor">Gao, K.</span>, <span class="refAuthor">Lee, Y.</span>, <span class="refAuthor">Randriamasy, S.</span>, <span class="refAuthor">Yang, Y. R.</span>, and <span class="refAuthor">J. J. Zhang</span>, <span class="refTitle">"ALTO Extension: Path Vector"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-alto-path-vector-14</span>, <time datetime="2021-02-22" class="refDate">22 February 2021</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-alto-path-vector-14.txt">https://www.ietf.org/archive/id/draft-ietf-alto-path-vector-14.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-alto-performance-metrics">[I-D.ietf-alto-performance-metrics]</dt>
+      <dd>
+<span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Yang, Y. R.</span>, <span class="refAuthor">Lee, Y.</span>, <span class="refAuthor">Dhody, D.</span>, <span class="refAuthor">Randriamasy, S.</span>, and <span class="refAuthor">L. M. Contreras</span>, <span class="refTitle">"ALTO Performance Cost Metrics"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-alto-performance-metrics-15</span>, <time datetime="2021-02-04" class="refDate">4 February 2021</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-alto-performance-metrics-15.txt">https://www.ietf.org/archive/id/draft-ietf-alto-performance-metrics-15.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-idr-performance-routing">[I-D.ietf-idr-performance-routing]</dt>
+      <dd>
+<span class="refAuthor">Xu, X.</span>, <span class="refAuthor">Hegde, S.</span>, <span class="refAuthor">Talaulikar, K.</span>, <span class="refAuthor">Boucadair, M.</span>, and <span class="refAuthor">C. Jacquenet</span>, <span class="refTitle">"Performance-based BGP Routing Mechanism"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-idr-performance-routing-03</span>, <time datetime="2020-12-22" class="refDate">22 December 2020</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-idr-performance-routing-03.txt">https://www.ietf.org/archive/id/draft-ietf-idr-performance-routing-03.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-quic-transport">[I-D.ietf-quic-transport]</dt>
+      <dd>
+<span class="refAuthor">Iyengar, J.</span> and <span class="refAuthor">M. Thomson</span>, <span class="refTitle">"QUIC: A UDP-Based Multiplexed and Secure Transport"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-transport-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-quic-transport-34.txt">https://www.ietf.org/archive/id/draft-ietf-quic-transport-34.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-tcpm-converters">[I-D.ietf-tcpm-converters]</dt>
+      <dd>
+<span class="refAuthor">Bonaventure, O.</span>, <span class="refAuthor">Boucadair, M.</span>, <span class="refAuthor">Gundavelli, S.</span>, <span class="refAuthor">Seo, S.</span>, and <span class="refAuthor">B. Hesmans</span>, <span class="refTitle">"0-RTT TCP Convert Protocol"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tcpm-converters-19</span>, <time datetime="2020-03-22" class="refDate">22 March 2020</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-tcpm-converters-19.txt">https://www.ietf.org/archive/id/draft-ietf-tcpm-converters-19.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.irtf-panrg-questions">[I-D.irtf-panrg-questions]</dt>
+      <dd>
+<span class="refAuthor">Trammell, B.</span>, <span class="refTitle">"Current Open Questions in Path Aware Networking"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-panrg-questions-09</span>, <time datetime="2021-04-16" class="refDate">16 April 2021</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-irtf-panrg-questions-09.txt">https://www.ietf.org/archive/id/draft-irtf-panrg-questions-09.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC1122">[RFC1122]</dt>
+      <dd>
+<span class="refAuthor">Braden, R., Ed.</span>, <span class="refTitle">"Requirements for Internet Hosts - Communication Layers"</span>, <span class="seriesInfo">STD 3</span>, <span class="seriesInfo">RFC 1122</span>, <span class="seriesInfo">DOI 10.17487/RFC1122</span>, <time datetime="1989-10" class="refDate">October 1989</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc1122">https://www.rfc-editor.org/info/rfc1122</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC1940">[RFC1940]</dt>
+      <dd>
+<span class="refAuthor">Estrin, D.</span>, <span class="refAuthor">Li, T.</span>, <span class="refAuthor">Rekhter, Y.</span>, <span class="refAuthor">Varadhan, K.</span>, and <span class="refAuthor">D. Zappala</span>, <span class="refTitle">"Source Demand Routing: Packet Format and Forwarding Specification (Version 1)"</span>, <span class="seriesInfo">RFC 1940</span>, <span class="seriesInfo">DOI 10.17487/RFC1940</span>, <time datetime="1996-05" class="refDate">May 1996</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc1940">https://www.rfc-editor.org/info/rfc1940</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2616">[RFC2616]</dt>
+      <dd>
+<span class="refAuthor">Fielding, R.</span>, <span class="refAuthor">Gettys, J.</span>, <span class="refAuthor">Mogul, J.</span>, <span class="refAuthor">Frystyk, H.</span>, <span class="refAuthor">Masinter, L.</span>, <span class="refAuthor">Leach, P.</span>, and <span class="refAuthor">T. Berners-Lee</span>, <span class="refTitle">"Hypertext Transfer Protocol -- HTTP/1.1"</span>, <span class="seriesInfo">RFC 2616</span>, <span class="seriesInfo">DOI 10.17487/RFC2616</span>, <time datetime="1999-06" class="refDate">June 1999</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2616">https://www.rfc-editor.org/info/rfc2616</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3357">[RFC3357]</dt>
+      <dd>
+<span class="refAuthor">Koodli, R.</span> and <span class="refAuthor">R. Ravikanth</span>, <span class="refTitle">"One-way Loss Pattern Sample Metrics"</span>, <span class="seriesInfo">RFC 3357</span>, <span class="seriesInfo">DOI 10.17487/RFC3357</span>, <time datetime="2002-08" class="refDate">August 2002</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3357">https://www.rfc-editor.org/info/rfc3357</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3393">[RFC3393]</dt>
+      <dd>
+<span class="refAuthor">Demichelis, C.</span> and <span class="refAuthor">P. Chimento</span>, <span class="refTitle">"IP Packet Delay Variation Metric for IP Performance Metrics (IPPM)"</span>, <span class="seriesInfo">RFC 3393</span>, <span class="seriesInfo">DOI 10.17487/RFC3393</span>, <time datetime="2002-11" class="refDate">November 2002</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3393">https://www.rfc-editor.org/info/rfc3393</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4271">[RFC4271]</dt>
+      <dd>
+<span class="refAuthor">Rekhter, Y., Ed.</span>, <span class="refAuthor">Li, T., Ed.</span>, and <span class="refAuthor">S. Hares, Ed.</span>, <span class="refTitle">"A Border Gateway Protocol 4 (BGP-4)"</span>, <span class="seriesInfo">RFC 4271</span>, <span class="seriesInfo">DOI 10.17487/RFC4271</span>, <time datetime="2006-01" class="refDate">January 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4271">https://www.rfc-editor.org/info/rfc4271</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5136">[RFC5136]</dt>
+      <dd>
+<span class="refAuthor">Chimento, P.</span> and <span class="refAuthor">J. Ishac</span>, <span class="refTitle">"Defining Network Capacity"</span>, <span class="seriesInfo">RFC 5136</span>, <span class="seriesInfo">DOI 10.17487/RFC5136</span>, <time datetime="2008-02" class="refDate">February 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5136">https://www.rfc-editor.org/info/rfc5136</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5693">[RFC5693]</dt>
+      <dd>
+<span class="refAuthor">Seedorf, J.</span> and <span class="refAuthor">E. Burger</span>, <span class="refTitle">"Application-Layer Traffic Optimization (ALTO) Problem Statement"</span>, <span class="seriesInfo">RFC 5693</span>, <span class="seriesInfo">DOI 10.17487/RFC5693</span>, <time datetime="2009-10" class="refDate">October 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5693">https://www.rfc-editor.org/info/rfc5693</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6534">[RFC6534]</dt>
+      <dd>
+<span class="refAuthor">Duffield, N.</span>, <span class="refAuthor">Morton, A.</span>, and <span class="refAuthor">J. Sommers</span>, <span class="refTitle">"Loss Episode Metrics for IP Performance Metrics (IPPM)"</span>, <span class="seriesInfo">RFC 6534</span>, <span class="seriesInfo">DOI 10.17487/RFC6534</span>, <time datetime="2012-05" class="refDate">May 2012</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6534">https://www.rfc-editor.org/info/rfc6534</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7665">[RFC7665]</dt>
+      <dd>
+<span class="refAuthor">Halpern, J., Ed.</span> and <span class="refAuthor">C. Pignataro, Ed.</span>, <span class="refTitle">"Service Function Chaining (SFC) Architecture"</span>, <span class="seriesInfo">RFC 7665</span>, <span class="seriesInfo">DOI 10.17487/RFC7665</span>, <time datetime="2015-10" class="refDate">October 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7665">https://www.rfc-editor.org/info/rfc7665</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7679">[RFC7679]</dt>
+      <dd>
+<span class="refAuthor">Almes, G.</span>, <span class="refAuthor">Kalidindi, S.</span>, <span class="refAuthor">Zekauskas, M.</span>, and <span class="refAuthor">A. Morton, Ed.</span>, <span class="refTitle">"A One-Way Delay Metric for IP Performance Metrics (IPPM)"</span>, <span class="seriesInfo">STD 81</span>, <span class="seriesInfo">RFC 7679</span>, <span class="seriesInfo">DOI 10.17487/RFC7679</span>, <time datetime="2016-01" class="refDate">January 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7679">https://www.rfc-editor.org/info/rfc7679</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7680">[RFC7680]</dt>
+      <dd>
+<span class="refAuthor">Almes, G.</span>, <span class="refAuthor">Kalidindi, S.</span>, <span class="refAuthor">Zekauskas, M.</span>, and <span class="refAuthor">A. Morton, Ed.</span>, <span class="refTitle">"A One-Way Loss Metric for IP Performance Metrics (IPPM)"</span>, <span class="seriesInfo">STD 82</span>, <span class="seriesInfo">RFC 7680</span>, <span class="seriesInfo">DOI 10.17487/RFC7680</span>, <time datetime="2016-01" class="refDate">January 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7680">https://www.rfc-editor.org/info/rfc7680</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8175">[RFC8175]</dt>
+      <dd>
+<span class="refAuthor">Ratliff, S.</span>, <span class="refAuthor">Jury, S.</span>, <span class="refAuthor">Satterwhite, D.</span>, <span class="refAuthor">Taylor, R.</span>, and <span class="refAuthor">B. Berry</span>, <span class="refTitle">"Dynamic Link Exchange Protocol (DLEP)"</span>, <span class="seriesInfo">RFC 8175</span>, <span class="seriesInfo">DOI 10.17487/RFC8175</span>, <time datetime="2017-06" class="refDate">June 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8175">https://www.rfc-editor.org/info/rfc8175</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8558">[RFC8558]</dt>
+    <dd>
+<span class="refAuthor">Hardie, T., Ed.</span>, <span class="refTitle">"Transport Protocol Path Signals"</span>, <span class="seriesInfo">RFC 8558</span>, <span class="seriesInfo">DOI 10.17487/RFC8558</span>, <time datetime="2019-04" class="refDate">April 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8558">https://www.rfc-editor.org/info/rfc8558</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+<div id="acknowledgments">
+<section id="section-appendix.a">
+      <h2 id="name-acknowledgments">
+<a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
+      </h2>
+<p id="section-appendix.a-1">Thanks to the Path-Aware Networking Research Group for the discussion and feedback. Specifically, thanks to Mohamed Boudacair for the detailed review and various text suggestions, thanks to Brian Trammell for suggesting the flow definition, and thanks to Adrian Perrig and Matthias Rost for the detailed feedback. Thanks to Paul Hoffman for the editorial changes.<a href="#section-appendix.a-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="section-appendix.b">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Theresa Enghardt</span></div>
+<div dir="auto" class="left"><span class="org">Netflix</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:ietf@tenghardt.net" class="email">ietf@tenghardt.net</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Cyrill Krähenbühl</span></div>
+<div dir="auto" class="left"><span class="org">ETH Zürich</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:cyrill.kraehenbuehl@inf.ethz.ch" class="email">cyrill.kraehenbuehl@inf.ethz.ch</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
 </body>
 </html>
